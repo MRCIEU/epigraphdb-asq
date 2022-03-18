@@ -1,0 +1,16 @@
+[
+  {
+    "ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ent_term": "obesity",
+    "similarity_score": 1,
+    "identity_score": 0.6920537352561951,
+    "ic_score": 0.8104444504376274
+  },
+  {
+    "ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ent_term": "Genetic obesity",
+    "similarity_score": 0.8360223,
+    "identity_score": 0.5819268226623535,
+    "ic_score": 0.8700499578127231
+  }
+]

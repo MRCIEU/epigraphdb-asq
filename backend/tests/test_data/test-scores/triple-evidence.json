@@ -1,0 +1,18 @@
+[
+  {
+    "idx": 0,
+    "ent_object_id": "C0004096",
+    "ent_subject_id": "C0028754",
+    "ent_subject_term": "Obesity",
+    "ent_object_term": "Asthma",
+    "literature_count": 20
+  },
+  {
+    "idx": 1,
+    "ent_object_id": "C0004096",
+    "ent_subject_id": "C0242339",
+    "ent_subject_term": "Dyslipidemias",
+    "ent_object_term": "Asthma",
+    "literature_count": 1
+  }
+]

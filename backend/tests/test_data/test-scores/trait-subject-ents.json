@@ -1,0 +1,58 @@
+[
+  {
+    "ent_id": "ieu-a-1096",
+    "ent_term": "Childhood obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8776146
+  },
+  {
+    "ent_id": "ieu-a-93",
+    "ent_term": "Overweight",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7143705
+  },
+  {
+    "ent_id": "ieu-a-91",
+    "ent_term": "Obesity class 2",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.685093
+  },
+  {
+    "ent_id": "ieu-a-90",
+    "ent_term": "Obesity class 1",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6790731999999999
+  },
+  {
+    "ent_id": "ieu-a-92",
+    "ent_term": "Obesity class 3",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6635797999999999
+  },
+  {
+    "ent_id": "ieu-a-1096",
+    "ent_term": "Childhood obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7493110000000001
+  },
+  {
+    "ent_id": "ukb-d-is_female",
+    "ent_term": "Genetic sex",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6524538
+  }
+]

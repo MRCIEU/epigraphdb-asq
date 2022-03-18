@@ -1,0 +1,42 @@
+[
+  {
+    "idx": 0,
+    "subject_id": "ieu-a-90",
+    "subject_term": "Obesity class 1",
+    "object_id": "ukb-a-446",
+    "object_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Asthma",
+    "effect_size": 0.00715338303687326,
+    "se": 0.00268713768873655,
+    "pval": 0.007765877147300229
+  },
+  {
+    "idx": 1,
+    "subject_id": "ieu-a-1096",
+    "subject_term": "Childhood obesity",
+    "object_id": "ukb-b-12753",
+    "object_term": "Recent medication for hayfever or allergic rhinitis",
+    "effect_size": -0.0237568674132293,
+    "se": 0.0074841286993014905,
+    "pval": 0.00150198521714183
+  },
+  {
+    "idx": 2,
+    "subject_id": "ieu-a-1096",
+    "subject_term": "Childhood obesity",
+    "object_id": "ukb-a-446",
+    "object_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Asthma",
+    "effect_size": 0.0041297273476354895,
+    "se": 0.00135061497466583,
+    "pval": 0.00223069231706661
+  },
+  {
+    "idx": 3,
+    "subject_id": "ieu-a-93",
+    "subject_term": "Overweight",
+    "object_id": "ukb-a-446",
+    "object_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Asthma",
+    "effect_size": 0.0121477796737,
+    "se": 0.00292443626195345,
+    "pval": 0.000032687371243625394
+  }
+]

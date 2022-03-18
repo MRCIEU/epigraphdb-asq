@@ -1,0 +1,4 @@
+.vscode
+.env
+.snakemake
+*.egg-info

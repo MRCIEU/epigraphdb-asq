@@ -1,0 +1,78 @@
+version: "3.4"
+
+services:
+
+  backend:
+    build:
+      context: ./
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - ${DOCKER_BACKEND_PORT:-8615}:80
+    command: bash -c "make run"
+    env_file:
+      - .env
+    volumes:
+      - ./backend/:/app
+      - ./data:/data
+      - ./common_processing:/common_processing
+    environment:
+      - MAX_WORKERS=1
+    networks:
+      - default
+
+  redis:
+    image: redislabs/redismod
+    ports:
+      - ${DOCKER_REDIS_PORT:-8616}:6379
+    networks:
+      - default
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-dev
+      args:
+        - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_URL:-localhost:8615}
+    restart: unless-stopped
+    command: sh -c "make install run"
+    volumes:
+      - ./frontend/:/app/
+    environment:
+      - NODE_ENV=development
+      - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_URL:-localhost:8615}
+    ports:
+      - ${DOCKER_FRONTEND_PORT:-8617}:8080
+    networks:
+      - default
+
+  backend_prod:
+    build:
+      context: ./
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - ${DOCKER_BACKEND_PROD_PORT:-8625}:80
+    command: bash -c "make run_prod"
+    env_file:
+      - .env
+    volumes:
+      - ./backend/:/app
+      - ./data:/data
+      - ./common_processing:/common_processing
+    environment:
+      - MAX_WORKERS=8
+    networks:
+      - default
+
+  frontend_prod:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_PROD_URL:-localhost:8625}
+    restart: unless-stopped
+    ports:
+      - ${DOCKER_FRONTEND_PROD_PORT:-8626}:80
+    networks:
+      - default

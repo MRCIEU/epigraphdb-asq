@@ -1,0 +1,41 @@
+name: asq-analysis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  # main
+  - bs4
+  - metaflow
+  - matplotlib
+  - numpy
+  - pandas
+  - seaborn
+  - requests
+  - loguru
+  - environs
+  - pydash
+  # dev utils
+  - black
+  - flake8
+  - jedi
+  - jupyterlab
+  - nodejs
+  - isort
+  - autoflake
+  - mypy
+  - pytest
+  - pip
+  - pip:
+    - nb_black
+    - jupyterlab_execute_time
+    - icecream
+    - tabview
+    - ipymarkup
+    - ray
+    - nxontology
+    - html2text
+    - pandera==0.7
+    - hypothesis
+    - networkx==2.7
+    - pyvis

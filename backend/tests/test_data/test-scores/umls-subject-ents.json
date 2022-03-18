@@ -1,0 +1,482 @@
+[
+  {
+    "ent_id": "C0028754",
+    "ent_term": "Obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "C0028756",
+    "ent_term": "Morbid obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8599956
+  },
+  {
+    "ent_id": "C0267989",
+    "ent_term": "Lifelong obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8553862999999999
+  },
+  {
+    "ent_id": "C0348956",
+    "ent_term": "Drug-induced obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8342224
+  },
+  {
+    "ent_id": "C0342940",
+    "ent_term": "Android obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8315585999999999
+  },
+  {
+    "ent_id": "C2362324",
+    "ent_term": "Pediatric Obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8181463
+  },
+  {
+    "ent_id": "C0451819",
+    "ent_term": "Simple obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8167154999999999
+  },
+  {
+    "ent_id": "C0267990",
+    "ent_term": "Adult-onset obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8068947
+  },
+  {
+    "ent_id": "C1281429",
+    "ent_term": "Exogenous obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8067826
+  },
+  {
+    "ent_id": "C1281440",
+    "ent_term": "Familial obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7883515000000001
+  },
+  {
+    "ent_id": "C0857116",
+    "ent_term": "Gross obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7789183
+  },
+  {
+    "ent_id": "C0242339",
+    "ent_term": "Dyslipidemias",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7759282999999999
+  },
+  {
+    "ent_id": "C1167682",
+    "ent_term": "Abdominal obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7707755999999999
+  },
+  {
+    "ent_id": "C1285391",
+    "ent_term": "Obesity associated disorder",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.745574
+  },
+  {
+    "ent_id": "C0342942",
+    "ent_term": "Generalized obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7450547000000001
+  },
+  {
+    "ent_id": "C0271885",
+    "ent_term": "Hypothalamic obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7358979999999999
+  },
+  {
+    "ent_id": "C0267992",
+    "ent_term": "Obesity of endocrine origin",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7314765000000001
+  },
+  {
+    "ent_id": "C1536989",
+    "ent_term": "abdominal obesity metabolic syndrome",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7165583
+  },
+  {
+    "ent_id": "C1260894",
+    "ent_term": "Hypertrophic obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7057705999999999
+  },
+  {
+    "ent_id": "C1532480",
+    "ent_term": "Hyperplastic obesity",
+    "ref_ent_id": "query-triple-subj",
+    "ref_ent_term": "Obesity",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7054384
+  },
+  {
+    "ent_id": "C0028754",
+    "ent_term": "Obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "C0028756",
+    "ent_term": "Morbid obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8599956
+  },
+  {
+    "ent_id": "C0267989",
+    "ent_term": "Lifelong obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8553862999999999
+  },
+  {
+    "ent_id": "C0348956",
+    "ent_term": "Drug-induced obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8342224
+  },
+  {
+    "ent_id": "C0342940",
+    "ent_term": "Android obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8315585999999999
+  },
+  {
+    "ent_id": "C2362324",
+    "ent_term": "Pediatric Obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8181463
+  },
+  {
+    "ent_id": "C0451819",
+    "ent_term": "Simple obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8167154999999999
+  },
+  {
+    "ent_id": "C0267990",
+    "ent_term": "Adult-onset obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8068947
+  },
+  {
+    "ent_id": "C1281429",
+    "ent_term": "Exogenous obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8067826
+  },
+  {
+    "ent_id": "C1281440",
+    "ent_term": "Familial obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7883515000000001
+  },
+  {
+    "ent_id": "C0857116",
+    "ent_term": "Gross obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7789183
+  },
+  {
+    "ent_id": "C0242339",
+    "ent_term": "Dyslipidemias",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7759282999999999
+  },
+  {
+    "ent_id": "C1167682",
+    "ent_term": "Abdominal obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7707755999999999
+  },
+  {
+    "ent_id": "C1285391",
+    "ent_term": "Obesity associated disorder",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.745574
+  },
+  {
+    "ent_id": "C0342942",
+    "ent_term": "Generalized obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7450547000000001
+  },
+  {
+    "ent_id": "C0271885",
+    "ent_term": "Hypothalamic obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7358979999999999
+  },
+  {
+    "ent_id": "C0267992",
+    "ent_term": "Obesity of endocrine origin",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7314765000000001
+  },
+  {
+    "ent_id": "C1536989",
+    "ent_term": "abdominal obesity metabolic syndrome",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7165583
+  },
+  {
+    "ent_id": "C1260894",
+    "ent_term": "Hypertrophic obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7057705999999999
+  },
+  {
+    "ent_id": "C1532480",
+    "ent_term": "Hyperplastic obesity",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0001073",
+    "ref_ent_term": "obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7054384
+  },
+  {
+    "ent_id": "C0028754",
+    "ent_term": "Obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8360224
+  },
+  {
+    "ent_id": "C1281440",
+    "ent_term": "Familial obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7886864
+  },
+  {
+    "ent_id": "C0267989",
+    "ent_term": "Lifelong obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7505913
+  },
+  {
+    "ent_id": "C0451819",
+    "ent_term": "Simple obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7429376000000001
+  },
+  {
+    "ent_id": "C0267992",
+    "ent_term": "Obesity of endocrine origin",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7345543000000001
+  },
+  {
+    "ent_id": "C1281429",
+    "ent_term": "Exogenous obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7291544999999999
+  },
+  {
+    "ent_id": "C0348956",
+    "ent_term": "Drug-induced obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7234910999999999
+  },
+  {
+    "ent_id": "C0267990",
+    "ent_term": "Adult-onset obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7211086
+  },
+  {
+    "ent_id": "C0342880",
+    "ent_term": "Polygenic hypercholesterolemia",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7130512
+  },
+  {
+    "ent_id": "C2362324",
+    "ent_term": "Pediatric Obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7069527
+  },
+  {
+    "ent_id": "C0857116",
+    "ent_term": "Gross obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6988535
+  },
+  {
+    "ent_id": "C0028756",
+    "ent_term": "Morbid obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6972050999999999
+  },
+  {
+    "ent_id": "C1285391",
+    "ent_term": "Obesity associated disorder",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6719618
+  },
+  {
+    "ent_id": "C0342942",
+    "ent_term": "Generalized obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6709428
+  },
+  {
+    "ent_id": "C0242339",
+    "ent_term": "Dyslipidemias",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6593182
+  },
+  {
+    "ent_id": "C0342940",
+    "ent_term": "Android obesity",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6530708000000001
+  },
+  {
+    "ent_id": "C0020474",
+    "ent_term": "Hyperlipidemia, Familial Combined",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.640658
+  },
+  {
+    "ent_id": "C1536989",
+    "ent_term": "abdominal obesity metabolic syndrome",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6359136999999999
+  },
+  {
+    "ent_id": "C0694546",
+    "ent_term": "Familial hyperlipidemia",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6266556000000001
+  },
+  {
+    "ent_id": "C1275461",
+    "ent_term": "Familial hypercholesterolemia due to genetic defect of apolipoprotein B",
+    "ref_ent_id": "http://www.orpha.net/ORDO/Orphanet_77828",
+    "ref_ent_term": "Genetic obesity",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.6202677000000001
+  }
+]

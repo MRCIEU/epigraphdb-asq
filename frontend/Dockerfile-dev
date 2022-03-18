@@ -1,0 +1,11 @@
+# -*- mode: dockerfile -*-
+FROM node:12.4.0-alpine
+ARG VUE_APP_WEB_BACKEND_URL
+RUN apk add --no-cache git make ncurses gawk
+WORKDIR /app
+RUN npm install @vue/cli -g
+ENV NODE_ENV=development
+ENV VUE_APP_WEB_BACKEND_URL=${VUE_APP_WEB_BACKEND_URL}
+ENV VUE_APP_DEBUG=true
+# Fix watch file size limit on remote server
+ENV CHOKIDAR_USEPOLLING=1

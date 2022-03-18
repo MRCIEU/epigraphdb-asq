@@ -1,0 +1,322 @@
+[
+  {
+    "ent_id": "C0004096",
+    "ent_term": "Asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "C0155877",
+    "ent_term": "Allergic asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.9262302
+  },
+  {
+    "ent_id": "C0877430",
+    "ent_term": "Asthma chronic",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8828221999999999
+  },
+  {
+    "ent_id": "C0264408",
+    "ent_term": "Childhood asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8674557
+  },
+  {
+    "ent_id": "C4041248",
+    "ent_term": "Severe persistent allergic asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8584938
+  },
+  {
+    "ent_id": "C0340067",
+    "ent_term": "Drug-induced asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8582333
+  },
+  {
+    "ent_id": "C0264423",
+    "ent_term": "Occupational asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8546168999999999
+  },
+  {
+    "ent_id": "C0856716",
+    "ent_term": "Asthma aspirin-sensitive",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8506636999999999
+  },
+  {
+    "ent_id": "C0582415",
+    "ent_term": "Acute asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8492067000000001
+  },
+  {
+    "ent_id": "C0348819",
+    "ent_term": "Mixed asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8445193
+  },
+  {
+    "ent_id": "C1740754",
+    "ent_term": "Intermittent asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8440608999999999
+  },
+  {
+    "ent_id": "C0004099",
+    "ent_term": "Asthma, Exercise-Induced",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8434813000000001
+  },
+  {
+    "ent_id": "C1516055",
+    "ent_term": "Asthma Preparation",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8254539999999999
+  },
+  {
+    "ent_id": "C0238266",
+    "ent_term": "Meat-wrappers' asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8249264000000001
+  },
+  {
+    "ent_id": "C1319018",
+    "ent_term": "Asthmatic bronchitis",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8221415000000001
+  },
+  {
+    "ent_id": "C1260881",
+    "ent_term": "Allergic bronchitis",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8199314
+  },
+  {
+    "ent_id": "C0264348",
+    "ent_term": "Chronic asthmatic bronchitis",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8033600000000001
+  },
+  {
+    "ent_id": "C0861154",
+    "ent_term": "Allergic rhinoconjunctivitis",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8030435
+  },
+  {
+    "ent_id": "C0684913",
+    "ent_term": "Chemical-induced asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.8004289
+  },
+  {
+    "ent_id": "C0340073",
+    "ent_term": "Factitious asthma",
+    "ref_ent_id": "query-triple-obj",
+    "ref_ent_term": "Asthma",
+    "ref_meta_ent": "QueryUMLS",
+    "similarity_score": 0.7880320000000001
+  },
+  {
+    "ent_id": "C0004096",
+    "ent_term": "Asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "C0155877",
+    "ent_term": "Allergic asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.9262302
+  },
+  {
+    "ent_id": "C0877430",
+    "ent_term": "Asthma chronic",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8828221999999999
+  },
+  {
+    "ent_id": "C0264408",
+    "ent_term": "Childhood asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8674557
+  },
+  {
+    "ent_id": "C4041248",
+    "ent_term": "Severe persistent allergic asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8584938
+  },
+  {
+    "ent_id": "C0340067",
+    "ent_term": "Drug-induced asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8582333
+  },
+  {
+    "ent_id": "C0264423",
+    "ent_term": "Occupational asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8546168999999999
+  },
+  {
+    "ent_id": "C0856716",
+    "ent_term": "Asthma aspirin-sensitive",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8506636999999999
+  },
+  {
+    "ent_id": "C0582415",
+    "ent_term": "Acute asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8492067000000001
+  },
+  {
+    "ent_id": "C0348819",
+    "ent_term": "Mixed asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8445193
+  },
+  {
+    "ent_id": "C1740754",
+    "ent_term": "Intermittent asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8440608999999999
+  },
+  {
+    "ent_id": "C0004099",
+    "ent_term": "Asthma, Exercise-Induced",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8434813000000001
+  },
+  {
+    "ent_id": "C1516055",
+    "ent_term": "Asthma Preparation",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8254539999999999
+  },
+  {
+    "ent_id": "C0238266",
+    "ent_term": "Meat-wrappers' asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8249264000000001
+  },
+  {
+    "ent_id": "C1319018",
+    "ent_term": "Asthmatic bronchitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8221415000000001
+  },
+  {
+    "ent_id": "C1260881",
+    "ent_term": "Allergic bronchitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8199314
+  },
+  {
+    "ent_id": "C0264348",
+    "ent_term": "Chronic asthmatic bronchitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8033600000000001
+  },
+  {
+    "ent_id": "C0861154",
+    "ent_term": "Allergic rhinoconjunctivitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8030435
+  },
+  {
+    "ent_id": "C0684913",
+    "ent_term": "Chemical-induced asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8004289
+  },
+  {
+    "ent_id": "C0340073",
+    "ent_term": "Factitious asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.7880320000000001
+  }
+]

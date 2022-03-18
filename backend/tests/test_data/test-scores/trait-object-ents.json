@@ -1,0 +1,74 @@
+[
+  {
+    "ent_id": "ukb-d-J10_ASTHMA",
+    "ent_term": "Asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "ieu-a-44",
+    "ent_term": "Asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 1
+  },
+  {
+    "ent_id": "ukb-a-447",
+    "ent_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Hayfever  allergic rhinitis or eczema",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8642966999999999
+  },
+  {
+    "ent_id": "ukb-a-446",
+    "ent_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8601182
+  },
+  {
+    "ent_id": "ukb-b-12753",
+    "ent_term": "Recent medication for hayfever or allergic rhinitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8415710999999999
+  },
+  {
+    "ent_id": "ukb-a-444",
+    "ent_term": "Blood clot  DVT  bronchitis  emphysema  asthma  rhinitis  eczema  allergy diagnosed by doctor: Emphysema/chronic bronchitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.825062
+  },
+  {
+    "ent_id": "ukb-b-17241",
+    "ent_term": "Blood clot, DVT, bronchitis, emphysema, asthma, rhinitis, eczema, allergy diagnosed by doctor: Hayfever, allergic rhinitis or eczema",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8207229
+  },
+  {
+    "ent_id": "ukb-b-7178",
+    "ent_term": "Doctor diagnosed hayfever or allergic rhinitis",
+    "ref_ent_term": "asthma",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8200068
+  },
+  {
+    "ent_id": "ukb-a-254",
+    "ent_term": "Doctor diagnosed hayfever or allergic rhinitis",
+    "ref_ent_id": "http://www.ebi.ac.uk/efo/EFO_0000270",
+    "ref_ent_term": "asthma",
+    "ref_meta_ent": "Efo",
+    "similarity_score": 0.8200068
+  }
+]

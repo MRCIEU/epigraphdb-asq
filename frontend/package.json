@@ -1,0 +1,108 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@adapttive/vue-markdown": "^4.0.1",
+    "@mdi/font": "5.9.55",
+    "axios": "^0.22.0",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
+    "highcharts": "^9.3.1",
+    "highcharts-vue": "^1.4.0",
+    "lodash": "^4.17.21",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "raw-loader": "^4.0.2",
+    "roboto-fontface": "*",
+    "vee-validate": "^3.4.13",
+    "vis-data": "^7.1.2",
+    "vis-util": "^5.0.2",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-fullscreen": "^2.6.1",
+    "vue-json-viewer": "^2.2.20",
+    "vue-lodash": "^2.1.2",
+    "vue-multiselect": "^2.1.6",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.2.0",
+    "vue-vis-network": "^1.0.2",
+    "vuetify": "^2.4.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.15.0",
+    "@prettier/plugin-pug": "^1.19.2",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-pug": "^1.2.4",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "typescript": "~4.1.5",
+    "vue-cli-plugin-vuetify": "~2.4.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "plugins": [
+      "pug"
+    ],
+    "extends": [
+      "plugin:vue/recommended",
+      "eslint:recommended",
+      "@vue/typescript/recommended",
+      "@vue/prettier",
+      "@vue/prettier/@typescript-eslint"
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser",
+      "ecmaVersion": 2020
+    },
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": "off",
+      "vue/no-unused-components": "warn",
+      "vue/no-v-html": "off",
+      "comma-dangle": [
+        "warn",
+        "always-multiline"
+      ],
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/ban-ts-comment": "off"
+    }
+  },
+  "prettier": {
+    "htmlWhitespaceSensitivity": "ignore",
+    "trailingComma": "all"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "_id": "app@0.1.0",
+  "readme": "ERROR: No README data found!"
+}
