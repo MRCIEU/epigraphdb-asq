@@ -41,7 +41,6 @@ def get_evidence_results(
         config=config,
     )
     result_df = evidence_func(subject_ids=subject_ids, object_ids=object_ids,)
-    # TODO: find a way to populate a null data frame
     logger.info(f"{len(result_df)}")
     logger.info(f"{result_df.groupby('meta_rel').size()}")
     return result_df

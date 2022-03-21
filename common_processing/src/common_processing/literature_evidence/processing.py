@@ -82,10 +82,6 @@ class _FulltextDf(_FulltextQueryDf):
     pass
 
 
-# TODO: refactor literature evidence into two components,
-# one with triples and literature counts
-# the ohter context with limit numbers
-# TODO: drop hard coded literature limit
 @pa.check_types
 def get_literature_info_df(
     triple_items: List[literature_types.TripleItem], config: Config,
@@ -93,6 +89,7 @@ def get_literature_info_df(
     @pa.check_types
     def _query(triple_id: str,) -> DataFrame[_LiteratureInfoQueryDf]:
         # NOTE: currently limited to SEMMEDDB
+        # MAYBE: drop hard coded literature limit
         query_template = """
         MATCH (triple:LiteratureTriple)-[r:SEMMEDDB_TO_LIT]->(literature:Literature)
         WHERE triple._id = "{id}"

@@ -444,7 +444,7 @@ class MakeEntsFlow(FlowSpec):
         else:
             with self.efo_out_file.open("r") as f:
                 self.efo_ents = json.load(f)
-        self.next(self.make_umls_ents)  # TODO: could branch next steps?
+        self.next(self.make_umls_ents)  # MAYBE: could branch next steps?
 
     @step
     def make_umls_ents(self):

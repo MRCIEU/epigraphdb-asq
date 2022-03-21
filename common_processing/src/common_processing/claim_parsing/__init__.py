@@ -91,6 +91,7 @@ class ClaimParser:
                         self._triple_df["triple_text"]
                     )
                 ]
+                .pipe(processing._invalid_triple_df_p)
                 .reset_index(drop=True)
                 .reset_index(drop=False)
                 .rename(columns={"index": "idx"})

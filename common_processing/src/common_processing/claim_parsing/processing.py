@@ -163,3 +163,8 @@ def _parse_semrep_sent(sent) -> Optional[List[Dict]]:
     ]
     # NOTE: mypy fails to resolve early None
     return semrep_triples  # type: ignore
+
+def _invalid_triple_df_p(df: pd.DataFrame) -> pd.DataFrame:
+    # drop CAUSES(SPEC) for now
+    res_df = df[df["pred"].apply(lambda e: e != "CAUSES(SPEC)")]
+    return res_df

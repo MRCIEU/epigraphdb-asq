@@ -50,8 +50,6 @@ def exist_with_epigraphdb_mr_eve_mr(
 ) -> List[str]:
     logger.info(f"Begin filter MR_EVE_MR, {len(ent_ids)=}")
     url = "{url}/cypher".format(url=config.epigraphdb_api_url)
-    # MAYBE: this needs to be fetched from an cached ent list,
-    # ideally in web backend api, rather than from the graph itself
     query = """
     MATCH
       (n:Gwas)-[r:MR_EVE_MR]-(m:Gwas)

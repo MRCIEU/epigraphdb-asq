@@ -209,8 +209,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.charMaxLen = this.$store.state.params.claimTextMaxCharLen;
-    // this.literatureSelect = this.queryOptions[0].value;
-    // this.literatureSelect = TODO;
   },
   methods: {
     reload() {
