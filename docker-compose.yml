@@ -61,7 +61,7 @@ services:
       - ./data:/data
       - ./common_processing:/common_processing
     environment:
-      - MAX_WORKERS=8
+      - MAX_WORKERS=${DOCKER_BACKEND_MAX_WORKERS:-4}
     networks:
       - default
 
