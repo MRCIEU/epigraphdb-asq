@@ -13,8 +13,7 @@ export const tripleSelect = `**Select a claim triple**:
 From the parsed triples,
 <span style="color:#E65100">**select a claim triple**</span> to focus for further analysis.
 This triple is then parsed to retrieve ontology entities in EpiGraphDB.
-
-Adjust the parameters if needed.`;
+`;
 
 export const entHarmonizationOntology = `**Entity harmonization**:
 

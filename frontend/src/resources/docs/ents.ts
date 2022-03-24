@@ -1,6 +1,8 @@
 export const ent = `
 **Entity representation**
 
+TODO: id, label
+
 `;
 
 export const triple = `
@@ -23,20 +25,35 @@ A knowledge triple that is parsed from the input query text.
 
 export const queryPred = `
 **Query UMLS predicate**
+
+TODO
+
 `;
 
 export const queryEnt = `
 **Query UMLS entity**
+
+TODO
+
 `;
 
 export const ontologyEnt = `
 **Ontology entity**
+
+TODO
+
 `;
 
 export const umlsEnt = `
 **UMLS entity**
+
+TODO
+
 `;
 
 export const traitEnt = `
 **GWAS trait entity**
+
+TODO
+
 `;

@@ -5,24 +5,15 @@
         <span>{{ appTitle }}</span>
       </v-btn>
     </v-toolbar-title>
-    <span class="px-5" />
-    <v-btn href="/docs" target="_blank" text dark>
-      <span class="mr-2">Documentation</span>
-      <v-icon>mdi-file-search</v-icon>
-    </v-btn>
-    <v-btn href="#" target="_blank" text dark>
-      <span class="mr-2">Programmatic query example</span>
-      <v-icon>mdi-open-in-new</v-icon>
-    </v-btn>
-    <v-btn href="#" target="_blank" text dark>
-      <span class="mr-2">Code</span>
-      <v-icon>mdi-open-in-new</v-icon>
+    <span class="px-1" />
+    <v-btn href="/triple" target="_blank" text dark>
+      <v-icon>mdi-chart-bubble</v-icon>
+      <span class="mr-2">Triple query</span>
     </v-btn>
     <v-btn href="/medrxiv-analysis" target="_blank" text dark>
-      <span class="mr-2">MedRxiv analysis</span>
       <v-icon>mdi-chart-bubble</v-icon>
+      <span class="mr-2">MedRxiv analysis</span>
     </v-btn>
-
     <v-spacer />
     <v-btn href="https://epigraphdb.org" target="_blank" text dark>
       <!-- <span class="mr-5">EpiGraphDB</span> -->

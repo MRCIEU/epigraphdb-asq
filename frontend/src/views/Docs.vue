@@ -1,160 +1,131 @@
-<template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <v-card>
-          <v-card-title>
-            <h2 id="about" ref="about" v-intersect="onIntersect">About</h2>
-          </v-card-title>
-        </v-card>
-        <v-divider class="py-3" />
-        <v-card>
-          <v-card-title>
-            <h2 id="terminology" ref="terminology" v-intersect="onIntersect">
-              Terminology
-            </h2>
-          </v-card-title>
-        </v-card>
-        <v-divider class="py-3" />
-        <v-row>
-          <v-col>
-            <v-card>
-              <v-card-title>
-                <h2 id="ents" ref="ents" v-intersect="onIntersect">Entities</h2>
-              </v-card-title>
-              <v-card-text>
-                <p v-for="(item, idx) in entsDocs" :key="idx">
-                  <vue-markdown :source="item" :breaks="false" />
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card>
-              <v-card-title>
-                <h2 id="params" ref="params" v-intersect="onIntersect">
-                  Parameters
-                </h2>
-              </v-card-title>
-              <v-card-text>
-                <p v-for="(item, idx) in params" :key="idx">
-                  <vue-markdown :source="item" :breaks="false" />
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-divider class="py-3" />
-        <v-row>
-          <v-col>
-            <v-card>
-              <v-card-title>
-                <h2 id="stages" ref="stages" v-intersect="onIntersect">
-                  Query stages
-                </h2>
-              </v-card-title>
-              <v-card-text>
-                <p v-for="(item, idx) in stageDocs" :key="idx">
-                  <vue-markdown :source="item" :breaks="false" />
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-col>
-          <v-col>
-            <v-card>
-              <v-card-title>
-                <h2 id="components" ref="components" v-intersect="onIntersect">
-                  Components
-                </h2>
-              </v-card-title>
-              <v-card-text>
-                <p v-for="(item, idx) in componentDocs" :key="idx">
-                  <vue-markdown :source="item" :breaks="false" />
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-divider class="py-3" />
-        <v-card>
-          <v-card-title>
-            <h2 ref="evidence">Evidence</h2>
-          </v-card-title>
-          <v-divider class="py-3" />
-          <v-card>
-            <v-card-title>
-              <h3
-                id="triple-literature-evidence"
-                ref="triple-literature-evidence"
-                v-intersect="onIntersect"
-              >
-                Knowledge triple and literature evidence
-              </h3>
-            </v-card-title>
-            <v-card-text>
-              <v-row>
-                <v-col>
-                  <h4>Directional</h4>
-                  <p
-                    v-for="(item, idx) in tripleEvidenceDocs.directional"
-                    :key="idx"
-                  >
-                    <vue-markdown :source="item" :breaks="false" />
-                  </p>
-                </v-col>
-                <v-col>
-                  <h4>Undirectional</h4>
-                  <p
-                    v-for="(item, idx) in tripleEvidenceDocs.undirectional"
-                    :key="idx"
-                  >
-                    <vue-markdown :source="item" :breaks="false" />
-                  </p>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-          <v-divider class="py-3" />
-          <v-card>
-            <v-card-title>
-              <h3
-                id="assoc-evidence"
-                ref="assoc-evidence"
-                v-intersect="onIntersect"
-              >
-                Association evidence
-              </h3>
-            </v-card-title>
-            <v-card-text>
-              <v-row>
-                <v-col>
-                  <h4>Directional</h4>
-                  <p
-                    v-for="(item, idx) in assocEvidenceDocs.directional"
-                    :key="idx"
-                  >
-                    <vue-markdown :source="item" :breaks="false" />
-                  </p>
-                </v-col>
-                <v-col>
-                  <h4>Undirectional</h4>
-                  <p
-                    v-for="(item, idx) in assocEvidenceDocs.undirectional"
-                    :key="idx"
-                  >
-                    <vue-markdown :source="item" :breaks="false" />
-                  </p>
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
-        </v-card>
-      </v-col>
-      <v-col cols="2">
-        <toc :outline="outline" @goto="jump" />
-      </v-col>
-    </v-row>
-  </v-container>
+<template lang="pug">
+v-container
+  v-row
+    //- Main
+    v-col
+      //- # About
+      v-card
+        v-card-title
+          h2#about(ref="about", v-intersect="onIntersect") About
+        v-card-text
+          v-row
+            v-col
+              vue-markdown(:source="docsView.aboutPt0", :breaks="false")
+            v-col
+              vue-markdown(:source="docsView.aboutPt1", :breaks="false")
+      v-divider.py-3
+      v-row
+        v-col
+          //- # Ents
+          v-card
+            v-card-title
+              h2#ents(ref="ents", v-intersect="onIntersect") Entities
+            v-card-text
+              p.font-weight-light {{ docsView.sectionDocs.entities }}
+              p(v-for="(item, idx) in entsDocs", :key="idx")
+                vue-markdown(:source="item", :breaks="false")
+        v-col
+          //- # Params
+          v-card
+            v-card-title
+              h2#params(ref="params", v-intersect="onIntersect") Parameters
+            v-card-text
+              p.font-weight-light {{ docsView.sectionDocs.params }}
+              p(v-for="(item, idx) in params", :key="idx")
+                vue-markdown(:source="item", :breaks="false")
+      v-divider.py-3
+      v-row
+        v-col
+          //- # Stages
+          v-card
+            v-card-title
+              h2#stages(ref="stages", v-intersect="onIntersect") Query stages
+            v-card-text
+              p.font-weight-light {{ docsView.sectionDocs.stages }}
+              p(v-for="(item, idx) in stageDocs", :key="idx")
+                vue-markdown(:source="item", :breaks="false")
+        v-col
+          //- # Components
+          v-card
+            v-card-title
+              h2#components(ref="components", v-intersect="onIntersect") Components
+            v-card-text
+              p.font-weight-light {{ docsView.sectionDocs.components }}
+              p(v-for="(item, idx) in componentDocs", :key="idx")
+                vue-markdown(:source="item", :breaks="false")
+      v-divider.py-3
+      v-card
+        v-card-title
+          h2#triple-literature-evidence(
+            ref="triple-literature-evidence",
+            v-intersect="onIntersect"
+          ) Knowledge triple and literature evidence
+        v-card-text
+          p.font-weight-light {{ docsView.sectionDocs.tripleEvidence }}
+          v-row
+            v-col
+              h4 Directional predicates
+              p(
+                v-for="(item, idx) in tripleEvidenceDocs.directional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+            v-col
+              h4 Non-directional predicates
+              p(
+                v-for="(item, idx) in tripleEvidenceDocs.undirectional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+      v-divider.py-3
+      //- # Triple and literature evidence
+      v-card
+        v-card-title
+          h2#triple-literature-evidence(
+            ref="triple-literature-evidence",
+            v-intersect="onIntersect"
+          ) Knowledge triple and literature evidence types
+        v-card-text
+          p.font-weight-light {{ docsView.sectionDocs.assocEvidence }}
+          v-row
+            v-col
+              h4 Directional predicates
+              p(
+                v-for="(item, idx) in tripleEvidenceDocs.directional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+            v-col
+              h4 Non-directional predicates
+              p(
+                v-for="(item, idx) in tripleEvidenceDocs.undirectional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+      v-divider.py-3
+        //- # Association evidence
+        v-card
+          v-card-title
+            h2#assoc-evidence(ref="assoc-evidence", v-intersect="onIntersect") Association evidence types
+          v-card-text
+            v-row
+              v-col
+                h4 Directional predicates
+                p(
+                  v-for="(item, idx) in assocEvidenceDocs.directional",
+                  :key="idx"
+                )
+                  vue-markdown(:source="item", :breaks="false")
+              v-col
+                h4 Non-directional predicates
+                p(
+                  v-for="(item, idx) in assocEvidenceDocs.undirectional",
+                  :key="idx"
+                )
+                  vue-markdown(:source="item", :breaks="false")
+    // Sidebar
+    v-col(cols="2")
+      toc(:outline="outline", @goto="jump")
 </template>
 
 <script lang="ts">
@@ -171,6 +142,9 @@ import * as evidenceTypesDocs from "@/resources/docs/evidence-types";
 import * as params from "@/resources/docs/params";
 import * as ents from "@/resources/docs/ents";
 import * as docs from "@/resources/docs/docs";
+import * as docsView from "@/resources/docs/docs-view";
+
+const VIEW_TITLE = "ASQ: docs";
 
 export default Vue.extend({
   name: "DocsView",
@@ -183,11 +157,6 @@ export default Vue.extend({
         about: {
           ref: "about",
           label: "About",
-          focus: false,
-        },
-        terminology: {
-          ref: "terminology",
-          label: "Terminology",
           focus: false,
         },
         ents: {
@@ -221,6 +190,7 @@ export default Vue.extend({
           focus: false,
         },
       },
+      docsView: docsView,
       evidenceTypesDocs: _.chain(evidenceTypesDocs)
         .mapValues((items) => items)
         .value(),
@@ -276,6 +246,9 @@ export default Vue.extend({
         .value();
       return res;
     },
+  },
+  mounted: function () {
+    document.title = VIEW_TITLE;
   },
   methods: {
     onIntersect(entries): void {

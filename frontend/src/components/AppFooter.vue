@@ -15,12 +15,34 @@
         <span v-if="queryTriple" v-html="queryTriple"></span>
         <v-spacer></v-spacer>
         <v-btn x-small tile text dark href="/docs" target="_blank">
-          <span>Docs</span>
-          <v-icon>mdi-file-search</v-icon>
+          <v-tooltip v-model="showDocsTooltip" top>
+            <template v-slot:activator="{ on, attrs }">
+              <div v-bind="attrs" v-on="on">
+                <v-icon>mdi-file-search</v-icon>
+                <span>Docs</span>
+              </div>
+            </template>
+            <span>Read documentation here</span>
+          </v-tooltip>
+        </v-btn>
+        <v-btn
+          x-small
+          tile
+          text
+          dark
+          href="https://github.com/mrcieu/epigraphdb-asq"
+          target="_blank"
+        >
+          <v-icon>mdi-open-in-new</v-icon>
+          <span>Code</span>
         </v-btn>
         <v-btn x-small tile text dark href="#" target="_blank">
-          <span>Feedback</span>
+          <v-icon>mdi-open-in-new</v-icon>
+          <span>Programmatic query</span>
+        </v-btn>
+        <v-btn x-small tile text dark href="#" target="_blank">
           <v-icon>mdi-comment-quote</v-icon>
+          <span>Feedback</span>
         </v-btn>
       </v-footer>
     </div>
@@ -40,6 +62,7 @@ export default Vue.extend({
   name: "AppFooter",
   data: () => ({
     hide: false,
+    showDocsTooltip: true,
   }),
   computed: {
     currentRouteName() {
@@ -71,6 +94,21 @@ export default Vue.extend({
     action(): string {
       const res = this.$store.getters["queryStage/stageAction"];
       return res;
+    },
+  },
+  mounted: function () {
+    this.timeoutTooltip();
+  },
+  methods: {
+    timeoutTooltip(): void {
+      setTimeout(
+        function () {
+          if (this.showDocsTooltip) {
+            this.showDocsTooltip = false;
+          }
+        }.bind(this),
+        5000,
+      );
     },
   },
 });

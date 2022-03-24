@@ -38,14 +38,17 @@ v-container
       @click="updateData"
     ) {{ btnState.label }}
   v-divider.py-5
-  v-tabs(
-    v-model="resultsTab",
-    centered,
-    background-color="rgba(21, 62, 62, 0.8)",
-    dark
-  )
-    v-tab Documentation
-    v-tab-item TODO
+  v-tabs(v-model="resultsTab", centered)
+    v-tab
+      v-tooltip(v-model="showDocsTooltip", top, color="success")
+        template(v-slot:activator="{ on, attrs }")
+          span(v-bind="attrs", v-on="on") About
+        span Read documentation here
+        br
+        | for first time visitors
+    v-tab-item
+      .py-2
+      vue-markdown(:source="docsView.analysisAbout", :breaks="false")
     v-tab Results
     v-tab-item
       v-row
@@ -135,6 +138,7 @@ import * as types from "@/types/types";
 import * as networkPlot from "@/funcs/network-plot-study-analysis";
 import { PRED_MAPPING, PRED_GROUP } from "@/store/ents";
 import LiteratureSource from "@/components/widgets/AnalysisLiteratureDialog.vue";
+import * as docsView from "@/resources/docs/docs-view";
 
 const VIEW_TITLE = "ASQ: analysis";
 
@@ -148,6 +152,8 @@ export default Vue.extend({
   data() {
     return {
       resultsTab: 1,
+      docsView: docsView,
+      showDocsTooltip: true,
       analysisData: null,
       baseData: null,
       tblData: null,
@@ -265,8 +271,19 @@ export default Vue.extend({
     this.baseData = this.makeBaseData();
     this.tblData = this.formatTblData(this.baseData);
     this.plotData = networkPlot.makePlot(this.baseData, [], edgeMode);
+    this.timeoutTooltip();
   },
   methods: {
+    timeoutTooltip(): void {
+      setTimeout(
+        function () {
+          if (this.showDocsTooltip) {
+            this.showDocsTooltip = false;
+          }
+        }.bind(this),
+        5000,
+      );
+    },
     updateData(): void {
       this.baseData = this.makeBaseData();
       this.tblData = this.formatTblData(this.baseData);

@@ -40,6 +40,7 @@ import * as evidenceTypesDocs from "@/resources/docs/evidence-types";
 import * as params from "@/resources/docs/params";
 import * as ents from "@/resources/docs/ents";
 import * as generalDocs from "@/resources/docs/docs";
+import * as docsView from "@/resources/docs/docs-view";
 import {
   makeNetworkPlotDocs,
   makeOntologyPlotDocs,
@@ -89,6 +90,7 @@ export default Vue.extend({
       const general = this._.values(generalDocs);
       const networkPlotDocs = makeNetworkPlotDocs();
       const ontologyPlotDocs = makeOntologyPlotDocs();
+      const docsViewDocs = [docsView.aboutPt0, docsView.aboutPt1];
       const networkDocs = [networkPlotDocs, ontologyPlotDocs];
       const evidenceTypeDocs = this._.chain([
         evidenceTypesDocs.tripleLiteratureEvidenceTypes.directional,
@@ -100,6 +102,7 @@ export default Vue.extend({
         .flatten()
         .value();
       const docGroups = [
+        docsViewDocs,
         networkDocs,
         general,
         entsDocs,
