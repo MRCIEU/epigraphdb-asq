@@ -28,42 +28,27 @@
       </v-col>
       <v-col>
         <span v-if="item.similarity_score">
-          <v-tooltip bottom max-width="400px">
-            <template v-slot:activator="{ on, attrs }">
-              <span class="font-weight-thin" v-bind="attrs" v-on="on">
-                similarity_score: &nbsp;
-              </span>
-            </template>
-            <vue-markdown :source="paramSimilarityScore" :breaks="false" />
-          </v-tooltip>
+          <tooltip :docs="paramSimilarityScore">
+            <span class="font-weight-thin">similarity_score: &nbsp;</span>
+          </tooltip>
           <code>
             {{ Number(item.similarity_score).toFixed(2) }}
           </code>
         </span>
         <span v-if="item.identity_score">
           <br />
-          <v-tooltip bottom max-width="400px">
-            <template v-slot:activator="{ on, attrs }">
-              <span class="font-weight-thin" v-bind="attrs" v-on="on">
-                identity_score: &nbsp;
-              </span>
-            </template>
-            <vue-markdown :source="paramIdentityScore" :breaks="false" />
-          </v-tooltip>
+          <tooltip :docs="paramIdentityScore">
+            <span class="font-weight-thin">identity_score: &nbsp;</span>
+          </tooltip>
           <code>
             {{ Number(item.identity_score).toFixed(2) }}
           </code>
         </span>
         <span v-if="item.ic_score">
           <br />
-          <v-tooltip bottom max-width="400px">
-            <template v-slot:activator="{ on, attrs }">
-              <span class="font-weight-thin" v-bind="attrs" v-on="on">
-                ic_score: &nbsp;
-              </span>
-            </template>
-            <vue-markdown :source="paramIcScore" :breaks="false" />
-          </v-tooltip>
+          <tooltip :docs="paramIcScore">
+            <span class="font-weight-thin">ic_score: &nbsp;</span>
+          </tooltip>
           <code>
             {{ Number(item.ic_score).toFixed(2) }}
           </code>
@@ -76,6 +61,8 @@
 <script lang="ts">
 import Vue from "vue";
 
+import Tooltip from "@/components/widgets/Tooltip.vue";
+
 import {
   paramSimilarityScore,
   paramIcScore,
@@ -85,7 +72,7 @@ import {
 export default Vue.extend({
   name: "EntityItem",
   components: {
-    //
+    Tooltip,
   },
   props: {
     item: {

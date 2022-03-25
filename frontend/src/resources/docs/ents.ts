@@ -27,10 +27,14 @@ A triple that is parsed from the input query text.
 
 export const validTriple = `
 **Valid claim triple**
+
+TODO
 `;
 
 export const invalidTriple = `
 **Invalid claim triple**
+
+TODO
 `;
 
 export const ontologyEnt = `

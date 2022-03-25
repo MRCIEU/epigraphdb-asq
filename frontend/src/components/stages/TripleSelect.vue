@@ -28,11 +28,15 @@ v-container
           h3 Parsed triple results
           v-subheader Invalid claim triples
           p
-            | There are #[b {{ claimData.invalidTriples.length }}] #[em invalid] triples generated from the claim text. &nbsp;
+            | There are #[b {{ claimData.invalidTriples.length }}] &nbsp;
+            tooltip(:docs="entsDocs.invalidTriple") invalid triples
+            | &nbsp; generated from the claim text. &nbsp;
             invalid-triple-dialog(:triples="claimData.invalidTriples")
           v-subheader Valid claim triples
           p
-            | There are #[b {{ claimTriples.length }}] triples generated from the claim text.
+            | There are #[b {{ claimTriples.length }}] &nbsp;
+            tooltip(:docs="entsDocs.validTriple") valid triples
+            | &nbsp; generated from the claim text.
             span(style="color: #e65100") &nbsp; Select a triple
             span &nbsp; for further analysis.
           v-radio-group.triple-radio-group(v-model="selectedTriple")
@@ -65,6 +69,8 @@ import * as docs from "@/resources/docs/docs";
 import { Triple } from "@/types/types.ts";
 import ClaimTextDisplay from "@/components/widgets/ClaimTextDisplay.vue";
 import InvalidTripleDialog from "@/components/widgets/InvalidTripleDialog.vue";
+import * as entsDocs from "@/resources/docs/ents";
+import Tooltip from "@/components/widgets/Tooltip.vue";
 import * as backendRequests from "@/funcs/backend_requests";
 import * as processing from "@/funcs/processing";
 
@@ -74,6 +80,7 @@ export default Vue.extend({
     ClaimTriple,
     ClaimTextDisplay,
     InvalidTripleDialog,
+    Tooltip,
   },
   props: {
     stage: {
@@ -86,6 +93,7 @@ export default Vue.extend({
       title: "Select a claim triple",
       selectedTriple: null,
       docs: docs,
+      entsDocs: entsDocs,
       loading: false,
     };
   },
