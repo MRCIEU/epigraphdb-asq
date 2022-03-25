@@ -11,6 +11,8 @@ import VueLodash from "vue-lodash";
 import lodash from "lodash";
 Vue.use(VueLodash, { name: "custom", lodash: lodash });
 
+import "@/plugins/general.css";
+
 import VueMarkdown from "@adapttive/vue-markdown";
 import JsonViewer from "vue-json-viewer";
 import "@/plugins/json-viewer-gruvbox-dark.scss";

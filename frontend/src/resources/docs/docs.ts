@@ -1,9 +1,9 @@
 export const queryParsing = `**Insert query text**:
 
-<span style="color:#E65100">**Insert a paragraph of text**</span>
+<span class="mark">Insert a paragraph of text</span>
 that might contain some claims
 of **biomedical nature**,
-or <span style="color:#B71C1C">**use a predefined text**</span>
+or <span class="mark1">use a predefined text</span>
 as a demonstration.
 
 The input text will be parsed to generate claim triples.`;
@@ -11,18 +11,18 @@ The input text will be parsed to generate claim triples.`;
 export const tripleSelect = `**Select a claim triple**:
 
 From the parsed triples,
-<span style="color:#E65100">**select a claim triple**</span> to focus for further analysis.
+<span class="mark">select a claim triple</span> to focus for further analysis.
 This triple is then parsed to retrieve ontology entities in EpiGraphDB.
 `;
 
 export const entHarmonizationOntology = `**Entity harmonization**:
 
-<span style="color:#E65100">**Select subject (object) ontology entities**</span> that represent
+<span class="mark">Select subject (object) ontology entities</span> that represent
 the claim subject (object) entities, which will be used as
 the basis of further entity harmonization and subsequent
 evidence retrieval procedures.
 
-By default, suitable candidates have been <span style="color:#B71C1C">**picked automatically**</span>.
+By default, suitable candidates have been <span class="mark1">picked automatically</span>.
 `;
 
 export const evidenceSummary = `**Evidence summary**:

@@ -65,6 +65,7 @@ export default Vue.extend({
     carousel: 0,
     docList: [],
     numDocs: 10,
+    docsViewDocs: docsView,
   }),
   computed: {
     testLoading(): boolean {
@@ -90,7 +91,7 @@ export default Vue.extend({
       const general = this._.values(generalDocs);
       const networkPlotDocs = makeNetworkPlotDocs();
       const ontologyPlotDocs = makeOntologyPlotDocs();
-      const docsViewDocs = [docsView.aboutPt0, docsView.aboutPt1];
+      const aboutDocs = this.docsViewDocs.docsViewDocs;
       const networkDocs = [networkPlotDocs, ontologyPlotDocs];
       const evidenceTypeDocs = this._.chain([
         evidenceTypesDocs.tripleLiteratureEvidenceTypes.directional,
@@ -102,7 +103,7 @@ export default Vue.extend({
         .flatten()
         .value();
       const docGroups = [
-        docsViewDocs,
+        aboutDocs,
         networkDocs,
         general,
         entsDocs,

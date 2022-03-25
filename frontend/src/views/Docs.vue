@@ -6,13 +6,22 @@ v-container
       //- # About
       v-card
         v-card-title
-          h2#about(ref="about", v-intersect="onIntersect") About
+          h2#about(ref="about", v-intersect="onIntersect") Annotated Semantic Queries (ASQ)
+        v-card-text
+          vue-markdown(:source="docsView.aboutInit", :breaks="false")
+          vue-markdown(:source="docsView.aboutCitation", :breaks="false")
+      v-divider.py-3
+      //- # Terminology
+      v-card
+        v-card-title
+          h2#terminology(ref="terminology", v-intersect="onIntersect") Terminology
         v-card-text
           v-row
             v-col
               vue-markdown(:source="docsView.aboutPt0", :breaks="false")
-            v-col
               vue-markdown(:source="docsView.aboutPt1", :breaks="false")
+            v-col
+              vue-markdown(:source="docsView.aboutPt2", :breaks="false")
       v-divider.py-3
       v-row
         v-col
@@ -21,7 +30,6 @@ v-container
             v-card-title
               h2#ents(ref="ents", v-intersect="onIntersect") Entities
             v-card-text
-              p.font-weight-light {{ docsView.sectionDocs.entities }}
               p(v-for="(item, idx) in entsDocs", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
         v-col
@@ -30,7 +38,6 @@ v-container
             v-card-title
               h2#params(ref="params", v-intersect="onIntersect") Parameters
             v-card-text
-              p.font-weight-light {{ docsView.sectionDocs.params }}
               p(v-for="(item, idx) in params", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
       v-divider.py-3
@@ -41,7 +48,6 @@ v-container
             v-card-title
               h2#stages(ref="stages", v-intersect="onIntersect") Query stages
             v-card-text
-              p.font-weight-light {{ docsView.sectionDocs.stages }}
               p(v-for="(item, idx) in stageDocs", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
         v-col
@@ -50,7 +56,6 @@ v-container
             v-card-title
               h2#components(ref="components", v-intersect="onIntersect") Components
             v-card-text
-              p.font-weight-light {{ docsView.sectionDocs.components }}
               p(v-for="(item, idx) in componentDocs", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
       v-divider.py-3
@@ -61,7 +66,6 @@ v-container
             v-intersect="onIntersect"
           ) Knowledge triple and literature evidence
         v-card-text
-          p.font-weight-light {{ docsView.sectionDocs.tripleEvidence }}
           v-row
             v-col
               h4 Directional predicates
@@ -86,7 +90,6 @@ v-container
             v-intersect="onIntersect"
           ) Knowledge triple and literature evidence types
         v-card-text
-          p.font-weight-light {{ docsView.sectionDocs.assocEvidence }}
           v-row
             v-col
               h4 Directional predicates
@@ -157,6 +160,11 @@ export default Vue.extend({
         about: {
           ref: "about",
           label: "About",
+          focus: false,
+        },
+        terminology: {
+          ref: "terminology",
+          label: "Terminology",
           focus: false,
         },
         ents: {
