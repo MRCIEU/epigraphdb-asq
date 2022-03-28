@@ -64,7 +64,7 @@ v-container
           h2#triple-literature-evidence(
             ref="triple-literature-evidence",
             v-intersect="onIntersect"
-          ) Knowledge triple and literature evidence
+          ) Triple and literature evidence
         v-card-text
           v-row
             v-col
@@ -106,26 +106,46 @@ v-container
               )
                 vue-markdown(:source="item", :breaks="false")
       v-divider.py-3
-        //- # Association evidence
-        v-card
-          v-card-title
-            h2#assoc-evidence(ref="assoc-evidence", v-intersect="onIntersect") Association evidence types
-          v-card-text
-            v-row
-              v-col
-                h4 Directional predicates
-                p(
-                  v-for="(item, idx) in assocEvidenceDocs.directional",
-                  :key="idx"
-                )
-                  vue-markdown(:source="item", :breaks="false")
-              v-col
-                h4 Non-directional predicates
-                p(
-                  v-for="(item, idx) in assocEvidenceDocs.undirectional",
-                  :key="idx"
-                )
-                  vue-markdown(:source="item", :breaks="false")
+      //- # Association evidence
+      v-card
+        v-card-title
+          h2#assoc-evidence(ref="assoc-evidence", v-intersect="onIntersect") Association evidence types
+        v-card-text
+          v-row
+            v-col
+              h4 Directional predicates
+              p(
+                v-for="(item, idx) in assocEvidenceDocs.directional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+            v-col
+              h4 Non-directional predicates
+              p(
+                v-for="(item, idx) in assocEvidenceDocs.undirectional",
+                :key="idx"
+              )
+                vue-markdown(:source="item", :breaks="false")
+      v-divider.py-3
+      //- # Scores
+      v-card
+        v-card-title
+          h2#scores(ref="scores", v-intersect="onIntersect") Evidence Scores
+        v-card-text
+          v-row
+            v-col
+              vue-markdown(:source="docsScores.mappingScore")
+              vue-markdown(:source="docsScores.evidenceScore")
+            v-col
+              vue-markdown(:source="docsScores.tripleScore")
+              vue-markdown(:source="docsScores.assocScore")
+      v-divider.py-3
+      //- # medrxiv analysis
+      v-card
+        v-card-title
+          h2#analysis(ref="analysis", v-intersect="onIntersect") MedRxiv analysis
+        v-card-text
+          vue-markdown(:source="docsAnalysis.about")
     // Sidebar
     v-col(cols="2")
       toc(:outline="outline", @goto="jump")
@@ -146,6 +166,8 @@ import * as params from "@/resources/docs/params";
 import * as ents from "@/resources/docs/ents";
 import * as docs from "@/resources/docs/docs";
 import * as docsView from "@/resources/docs/docs-view";
+import * as docsScores from "@/resources/docs/scores";
+import * as docsAnalysis from "@/resources/docs/analysis";
 
 const VIEW_TITLE = "ASQ: docs";
 
@@ -189,7 +211,7 @@ export default Vue.extend({
         },
         "triple-literature-evidence": {
           ref: "triple-literature-evidence",
-          label: "Knowledge triple and literature evidence",
+          label: "Triple and literature evidence",
           focus: false,
         },
         "assoc-evidence": {
@@ -197,8 +219,20 @@ export default Vue.extend({
           label: "Association evidence",
           focus: false,
         },
+        scores: {
+          ref: "scores",
+          label: "Evidence scores",
+          focus: false,
+        },
+        analysis: {
+          ref: "analysis",
+          label: "MedRxiv analysis",
+          focus: false,
+        },
       },
       docsView: docsView,
+      docsAnalysis: docsAnalysis,
+      docsScores: docsScores,
       evidenceTypesDocs: _.chain(evidenceTypesDocs)
         .mapValues((items) => items)
         .value(),
@@ -248,8 +282,7 @@ export default Vue.extend({
     componentDocs(): string[] {
       const networkPlotDocs = makeNetworkPlotDocs();
       const ontologyPlotDocs = makeOntologyPlotDocs();
-      const otherDocs = [docs.forestPlot];
-      const res = _.chain([networkPlotDocs, ontologyPlotDocs, otherDocs])
+      const res = _.chain([networkPlotDocs, ontologyPlotDocs])
         .flatten()
         .value();
       return res;

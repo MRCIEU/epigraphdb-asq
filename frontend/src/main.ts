@@ -16,8 +16,10 @@ import "@/plugins/general.css";
 import VueMarkdown from "@adapttive/vue-markdown";
 import JsonViewer from "vue-json-viewer";
 import "@/plugins/json-viewer-gruvbox-dark.scss";
+import Tooltip from "@/components/widgets/Tooltip.vue";
 Vue.component("VueMarkdown", VueMarkdown);
 Vue.component("JsonViewer", JsonViewer);
+Vue.component("Tooltip", Tooltip);
 
 Vue.config.productionTip = false;
 Vue.use(fullscreen);

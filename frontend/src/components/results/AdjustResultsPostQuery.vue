@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="showDialog" width="1080">
+    <v-dialog v-model="showDialog" width="1440">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"

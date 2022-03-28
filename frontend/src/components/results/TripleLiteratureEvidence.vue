@@ -40,6 +40,21 @@
       show-expand
       item-key="idx"
     >
+      <template v-slot:header.mapping_score="{ header }">
+        <tooltip :docs="docsScores.mappingScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
+      <template v-slot:header.triple_score="{ header }">
+        <tooltip :docs="docsScores.tripleScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
+      <template v-slot:header.evidence_score="{ header }">
+        <tooltip :docs="docsScores.evidenceScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
       <template v-slot:item.triple_lower="{ item }">
         <div>
           <a :href="item.url" target="_blank">
@@ -128,6 +143,7 @@ import Vue from "vue";
 
 import LiteratureDialog from "@/components/widgets/LiteratureDialog.vue";
 import TripleSummaryChart from "./TripleSummaryChart.vue";
+import * as docsScores from "@/resources/docs/scores";
 
 export default Vue.extend({
   name: "TripleLiteratureEvidenceResults",
@@ -151,6 +167,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      docsScores: docsScores,
       tripleHeaders: [
         {
           text: "#",
@@ -177,7 +194,7 @@ export default Vue.extend({
           value: "literature_count",
         },
         {
-          text: "Entity harmonization score",
+          text: "Mapping score",
           value: "mapping_score",
         },
         {

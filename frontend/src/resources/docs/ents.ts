@@ -28,32 +28,11 @@ A triple that is parsed from the input query text.
 export const validTriple = `
 **Valid claim triple**
 
-TODO
+In the context of ASQ, a valid claim triple is one that ASQ is able to find relevant evidence items, e.g. its predicate is a valid predicate that ASQ currently supports.
 `;
 
 export const invalidTriple = `
 **Invalid claim triple**
 
-TODO
-`;
-
-export const ontologyEnt = `
-**Ontology entity**
-
-TODO
-
-`;
-
-export const umlsEnt = `
-**UMLS entity**
-
-TODO
-
-`;
-
-export const traitEnt = `
-**GWAS trait entity**
-
-TODO
-
+In the context of ASQ, an invalid claim triple is one that ASQ is not able to proceed with further investigation, e.g. its predicate is not a valid predicate that ASQ currently supports.
 `;

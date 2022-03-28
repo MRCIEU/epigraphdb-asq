@@ -1,5 +1,6 @@
 <template lang="pug">
 v-container
+  h1 Systematic analysis on medRxiv submissions 2020-2021
   v-card
     v-card-title Options
     v-row.mx-5
@@ -48,7 +49,8 @@ v-container
         | for first time visitors
     v-tab-item
       .py-2
-      vue-markdown(:source="docsView.analysisAbout", :breaks="false")
+      v-container(fluid)
+        vue-markdown(:source="docsAnalysis.about", :breaks="false")
     v-tab Results
     v-tab-item
       v-row
@@ -89,6 +91,32 @@ v-container
                 :items-per-page="20",
                 dense
               )
+                template(v-slot:header.triple="{ header }")
+                  tooltip(:docs="docsEnts.validTriple") {{ header.text }}
+                template(
+                  v-slot:header.triple_evidence_supporting_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.tripleEvidenceSupporting") {{ header.text }}
+                template(
+                  v-slot:header.triple_evidence_reversal_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.tripleEvidenceReversal") {{ header.text }}
+                template(
+                  v-slot:header.assoc_evidence_supporting_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.assocEvidenceSupporting") {{ header.text }}
+                template(
+                  v-slot:header.assoc_evidence_reversal_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.assocEvidenceReversal") {{ header.text }}
+                template(
+                  v-slot:header.assoc_evidence_insufficient_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.assocEvidenceInsufficient") {{ header.text }}
+                template(
+                  v-slot:header.assoc_evidence_additional_score="{ header }"
+                )
+                  tooltip(:docs="docsAnalysis.assocEvidenceAdditional") {{ header.text }}
                 template(v-slot:item.triple="{ item }")
                   .my-2
                     a(:href="item.url", target="_blank")
@@ -138,7 +166,8 @@ import * as types from "@/types/types";
 import * as networkPlot from "@/funcs/network-plot-study-analysis";
 import { PRED_MAPPING, PRED_GROUP } from "@/store/ents";
 import LiteratureSource from "@/components/widgets/AnalysisLiteratureDialog.vue";
-import * as docsView from "@/resources/docs/docs-view";
+import * as docsAnalysis from "@/resources/docs/analysis";
+import * as docsEnts from "@/resources/docs/ents";
 
 const VIEW_TITLE = "ASQ: analysis";
 
@@ -152,7 +181,8 @@ export default Vue.extend({
   data() {
     return {
       resultsTab: 1,
-      docsView: docsView,
+      docsAnalysis: docsAnalysis,
+      docsEnts: docsEnts,
       showDocsTooltip: true,
       analysisData: null,
       baseData: null,

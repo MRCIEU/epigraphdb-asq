@@ -58,7 +58,3 @@ This section shows the following:
   **NOTE**: The specific definition of a evidence group is
   contingent on type of query predicate
   (refer to the specific evidence sections).`;
-
-export const forestPlot = `**Forest plot for association evidence**:
-
-TODO`;

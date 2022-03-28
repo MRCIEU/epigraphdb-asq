@@ -4,6 +4,8 @@ export const paramSimilarityScore = `
   between this entity and the target entity,
   where a higher score denotes higher degree of similarity.
   <br/> <br/>
+  In ASQ we compute semantic similarity score as the cosine similarity between the text embeddings of two labels.
+  <br/> <br/>
   This score is used for candidate retrieval.
   `;
 export const paramIdentityScore = `

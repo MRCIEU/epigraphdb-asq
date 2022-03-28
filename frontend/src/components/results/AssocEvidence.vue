@@ -40,6 +40,21 @@
       show-expand
       item-key="idx"
     >
+      <template v-slot:header.mapping_score="{ header }">
+        <tooltip :docs="docsScores.mappingScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
+      <template v-slot:header.assoc_score="{ header }">
+        <tooltip :docs="docsScores.assocScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
+      <template v-slot:header.evidence_score="{ header }">
+        <tooltip :docs="docsScores.evidenceScore">
+          {{ header.text }}
+        </tooltip>
+      </template>
       <template v-slot:item.subject_term="{ item }">
         <div>
           <span class="font-weight-thin">Gwas:</span>
@@ -142,7 +157,6 @@
         </template>
         <forest-plot :assoc-data="assocItems" />
       </v-dialog>
-      <docs-dialog :docs="generalDocs.forestPlot" />
       <div>
         <forest-plot :assoc-data="assocItems" />
       </div>
@@ -156,14 +170,13 @@ import Vue from "vue";
 import * as generalDocs from "@/resources/docs/docs";
 import ForestPlot from "./AssocForestPlot.vue";
 import AssocSummaryChart from "./AssocSummaryChart.vue";
-import DocsDialog from "@/components/widgets/DocsDialog.vue";
+import * as docsScores from "@/resources/docs/scores";
 
 export default Vue.extend({
   name: "EvidenceResults",
   components: {
     ForestPlot,
     AssocSummaryChart,
-    DocsDialog,
   },
   props: {
     docs: {
@@ -177,6 +190,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      docsScores: docsScores,
       focus: false,
       assocHeaders: [
         {

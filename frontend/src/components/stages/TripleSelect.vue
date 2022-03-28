@@ -70,7 +70,6 @@ import { Triple } from "@/types/types.ts";
 import ClaimTextDisplay from "@/components/widgets/ClaimTextDisplay.vue";
 import InvalidTripleDialog from "@/components/widgets/InvalidTripleDialog.vue";
 import * as entsDocs from "@/resources/docs/ents";
-import Tooltip from "@/components/widgets/Tooltip.vue";
 import * as backendRequests from "@/funcs/backend_requests";
 import * as processing from "@/funcs/processing";
 
@@ -80,7 +79,6 @@ export default Vue.extend({
     ClaimTriple,
     ClaimTextDisplay,
     InvalidTripleDialog,
-    Tooltip,
   },
   props: {
     stage: {

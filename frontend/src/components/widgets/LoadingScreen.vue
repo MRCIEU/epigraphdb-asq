@@ -41,6 +41,7 @@ import * as params from "@/resources/docs/params";
 import * as ents from "@/resources/docs/ents";
 import * as generalDocs from "@/resources/docs/docs";
 import * as docsView from "@/resources/docs/docs-view";
+import * as docsScores from "@/resources/docs/scores";
 import {
   makeNetworkPlotDocs,
   makeOntologyPlotDocs,
@@ -66,6 +67,7 @@ export default Vue.extend({
     docList: [],
     numDocs: 10,
     docsViewDocs: docsView,
+    docsScores: docsScores,
   }),
   computed: {
     testLoading(): boolean {
@@ -109,6 +111,7 @@ export default Vue.extend({
         entsDocs,
         paramDocs,
         evidenceTypeDocs,
+        docsScores.docsScores,
       ];
       const fullDocs = this._.chain(docGroups)
         .flatten()

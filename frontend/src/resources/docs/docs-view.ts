@@ -60,12 +60,6 @@ Until then please cite this website https://asq.epigraphdb.org
 if you use ASQ.
 `;
 
-export const analysisAbout: string = `
-# Systematic analysis on medRxiv submissions 2020-2021
-
-TODO
-`;
-
 export const docsViewDocs: string[] = [
   aboutPt0,
   aboutPt1,
