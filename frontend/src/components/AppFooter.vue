@@ -14,18 +14,17 @@
         </div>
         <span v-if="queryTriple" v-html="queryTriple"></span>
         <v-spacer></v-spacer>
-        <v-btn x-small tile text dark href="/docs" target="_blank">
-          <v-tooltip v-model="showDocsTooltip" top>
-            <template v-slot:activator="{ on, attrs }">
-              <div v-bind="attrs" v-on="on">
-                <v-icon>mdi-file-search</v-icon>
-                <span>Docs</span>
+        <v-tooltip v-model="showDocsTooltip" top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn x-small tile text dark href="/docs" target="_blank">
+              <div class="pt-1">
+                <span v-bind="attrs" v-on="on">Docs</span>
               </div>
-            </template>
-            <span>Read documentation here</span>
-          </v-tooltip>
-        </v-btn>
-        <tooltip :showUnderline="false" :docs="'Github'" :position="'top'">
+            </v-btn>
+          </template>
+          <span>Read documentation here</span>
+        </v-tooltip>
+        <tooltip :show-underline="false" :docs="'Github'" :position="'top'">
           <v-btn
             x-small
             tile
@@ -34,19 +33,31 @@
             href="https://github.com/mrcieu/epigraphdb-asq"
             target="_blank"
           >
-            <v-icon>mdi-open-in-new</v-icon>
             <span>Code</span>
           </v-btn>
         </tooltip>
-        <tooltip :showUnderline="false" :docs="`Example on how to query the API programmatically`" :position="'top'">
+        <tooltip
+          :show-underline="false"
+          :docs="`Example on how to query the API programmatically`"
+          :position="'top'"
+        >
           <v-btn x-small tile text dark href="#" target="_blank">
-            <v-icon>mdi-open-in-new</v-icon>
             <span>Programmatic query</span>
           </v-btn>
         </tooltip>
-        <tooltip :showUnderline="false" :docs="`Feedbacks or queries welcome!`" :position="'top'">
-          <v-btn x-small tile text dark href="https://github.com/mrcieu/epigraphdb-asq/issues" target="_blank">
-            <v-icon>mdi-comment-quote</v-icon>
+        <tooltip
+          :show-underline="false"
+          :docs="`Feedbacks or queries welcome!`"
+          :position="'top'"
+        >
+          <v-btn
+            x-small
+            tile
+            text
+            dark
+            href="https://github.com/mrcieu/epigraphdb-asq/issues"
+            target="_blank"
+          >
             <span>Feedback</span>
           </v-btn>
         </tooltip>
