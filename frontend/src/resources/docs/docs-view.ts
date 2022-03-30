@@ -1,5 +1,7 @@
 export const aboutInit: string = `
-The [EpiGraphDB-ASQ](https://asq.epigraphdb.org) (ASQ; \`/ɑːsk/\` i.e. "ask") interface serves as a natural language interface to query the integrated epidemiological evidence of the EpiGraphDB data and ecosystem.
+The [EpiGraphDB-ASQ](https://asq.epigraphdb.org) (ASQ; \`/ɑːsk/\` i.e. "ask") interface is a natural language interface to query the integrated epidemiological evidence of the EpiGraphDB data and ecosystem.
+The starting point of the query is either a short paragraph of text from which ASQ will derive and extract claim triples, or users can supply those claim triples directly.
+ASQ will retrieve data from EpiGraphDB, both biomedical entities and evidence from various sources, to faciliate the triangulation of the evidence regarding a specific claim.
 
 This page collects all the documentation fragments you see in the web interface.
 `;

@@ -25,25 +25,31 @@
             <span>Read documentation here</span>
           </v-tooltip>
         </v-btn>
-        <v-btn
-          x-small
-          tile
-          text
-          dark
-          href="https://github.com/mrcieu/epigraphdb-asq"
-          target="_blank"
-        >
-          <v-icon>mdi-open-in-new</v-icon>
-          <span>Code</span>
-        </v-btn>
-        <v-btn x-small tile text dark href="#" target="_blank">
-          <v-icon>mdi-open-in-new</v-icon>
-          <span>Programmatic query</span>
-        </v-btn>
-        <v-btn x-small tile text dark href="#" target="_blank">
-          <v-icon>mdi-comment-quote</v-icon>
-          <span>Feedback</span>
-        </v-btn>
+        <tooltip :showUnderline="false" :docs="'Github'" :position="'top'">
+          <v-btn
+            x-small
+            tile
+            text
+            dark
+            href="https://github.com/mrcieu/epigraphdb-asq"
+            target="_blank"
+          >
+            <v-icon>mdi-open-in-new</v-icon>
+            <span>Code</span>
+          </v-btn>
+        </tooltip>
+        <tooltip :showUnderline="false" :docs="`Example on how to query the API programmatically`" :position="'top'">
+          <v-btn x-small tile text dark href="#" target="_blank">
+            <v-icon>mdi-open-in-new</v-icon>
+            <span>Programmatic query</span>
+          </v-btn>
+        </tooltip>
+        <tooltip :showUnderline="false" :docs="`Feedbacks or queries welcome!`" :position="'top'">
+          <v-btn x-small tile text dark href="https://github.com/mrcieu/epigraphdb-asq/issues" target="_blank">
+            <v-icon>mdi-comment-quote</v-icon>
+            <span>Feedback</span>
+          </v-btn>
+        </tooltip>
       </v-footer>
     </div>
     <div v-else>

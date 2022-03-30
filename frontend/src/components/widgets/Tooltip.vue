@@ -1,7 +1,9 @@
 <template lang="pug">
-v-tooltip(bottom, max-width="400px")
+v-tooltip(v-bind:[position]="true" max-width="400px")
   template(v-slot:activator="{ on, attrs }")
-    span.tooltip-span(v-bind="attrs", v-on="on")
+    span.tooltip-span(v-if="showUnderline" v-bind="attrs", v-on="on")
+      slot
+    span(v-else v-bind="attrs", v-on="on")
       slot
   vue-markdown(:source="docs", :breaks="false")
 </template>
@@ -16,6 +18,14 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    showUnderline: {
+      type: Boolean,
+      default: true,
+    },
+    position: {
+      type: String,
+      default: "bottom",
+    }
   },
   data() {
     return {

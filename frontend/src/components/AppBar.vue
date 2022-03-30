@@ -1,19 +1,23 @@
 <template>
   <v-app-bar :id="navbarId" app dense flat>
     <v-toolbar-title>
-      <v-btn href="/" text dark>
-        <span>{{ appTitle }}</span>
-      </v-btn>
+      <tooltip :docs="`Back to the main page`" :showUnderline="false">
+        <v-btn href="/" text dark>
+          <span>{{ appTitle }}</span>
+        </v-btn>
+      </tooltip>
     </v-toolbar-title>
     <span class="px-1" />
-    <v-btn href="/triple" target="_blank" text dark>
-      <v-icon>mdi-chart-bubble</v-icon>
-      <span class="mr-2">Triple query</span>
-    </v-btn>
-    <v-btn href="/medrxiv-analysis" target="_blank" text dark>
-      <v-icon>mdi-chart-bubble</v-icon>
-      <span class="mr-2">MedRxiv analysis</span>
-    </v-btn>
+    <tooltip :docs="`Query using a claim triple`" :showUnderline="false">
+      <v-btn href="/triple" target="_blank" text dark>
+        <span class="mr-2">Triple query</span>
+      </v-btn>
+    </tooltip>
+    <tooltip :docs="`Systematic analysis results on medRxiv submissions`" :showUnderline="false">
+      <v-btn href="/medrxiv-analysis" target="_blank" text dark>
+        <span class="mr-2">MedRxiv analysis</span>
+      </v-btn>
+    </tooltip>
     <v-spacer />
     <v-btn href="https://epigraphdb.org" target="_blank" text dark>
       <!-- <span class="mr-5">EpiGraphDB</span> -->
