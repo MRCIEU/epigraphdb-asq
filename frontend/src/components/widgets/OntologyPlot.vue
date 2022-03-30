@@ -32,7 +32,6 @@ import { Network } from "vue-vis-network";
 
 import * as types from "@/types/types";
 import { makeOntologyPlotData } from "@/funcs/network-plot";
-import { makeOntologyPlotDocs } from "@/funcs/network-plot";
 import DocsDialog from "@/components/widgets/DocsDialog.vue";
 
 export default Vue.extend({
@@ -86,7 +85,7 @@ export default Vue.extend({
     },
   },
   async mounted() {
-    this.ontologyPlotDocs = makeOntologyPlotDocs();
+    this.ontologyPlotDocs = this.$store.state.docs.plots.ontologyPlot;
     await this.refresh();
   },
   methods: {

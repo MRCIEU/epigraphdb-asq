@@ -7,7 +7,10 @@
           <vue-markdown
             :breaks="false"
             :source="
-              docs.entHarmonizationOntology.split('\n').splice(1).join('\n')
+              $store.state.docs.general.entHarmonizationOntology
+                .split('\n')
+                .splice(1)
+                .join('\n')
             "
           />
         </p>
@@ -88,7 +91,6 @@
 <script lang="ts">
 import Vue from "vue";
 
-import * as docs from "@/resources/docs/docs";
 import ClaimTriple from "@/components/widgets/ClaimTriple.vue";
 import EntityItem from "@/components/widgets/EntityItem.vue";
 import { checkStageComplete } from "@/funcs/utils";
@@ -114,7 +116,6 @@ export default Vue.extend({
       ontologyEntSubjectSelect: [],
       ontologyEntObjectSelect: [],
       numOntologyEnts: 4,
-      docs: docs,
       loading: false,
     };
   },

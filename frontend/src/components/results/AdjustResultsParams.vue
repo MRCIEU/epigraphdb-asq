@@ -110,7 +110,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      paramDocs: paramDocs,
       labels: {
         // ent harmonization
         ontologyNumCandidates: {

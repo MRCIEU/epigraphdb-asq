@@ -6,7 +6,12 @@
         <p class="blockquote">
           <vue-markdown
             :breaks="false"
-            :source="docs.queryParsing.split('\n').splice(1).join('\n')"
+            :source="
+              $store.state.docs.general.queryParsing
+                .split('\n')
+                .splice(1)
+                .join('\n')
+            "
           />
         </p>
       </v-col>
@@ -92,8 +97,6 @@
 <script lang="ts">
 import Vue from "vue";
 
-import * as docs from "@/resources/docs/docs";
-
 // @ts-ignore
 import defaultText from "@/resources/query-claim-default.md";
 import { topics } from "@/resources/query-candidates";
@@ -119,7 +122,6 @@ export default Vue.extend({
       customClaimTextInput: "",
       usingCustomText: false,
       loading: false,
-      docs: docs,
       charMaxLen: null,
       topicSelect: "obesity",
       topics: topics,

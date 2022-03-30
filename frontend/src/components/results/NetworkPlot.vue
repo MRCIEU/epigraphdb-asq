@@ -50,8 +50,8 @@
 import Vue from "vue";
 
 import { Network } from "vue-vis-network";
+import { makeNetworkPlotData } from "@/funcs/network-plot";
 
-import { makeNetworkPlotData, makeNetworkPlotDocs } from "@/funcs/network-plot";
 import DocsDialog from "@/components/widgets/DocsDialog.vue";
 
 export default Vue.extend({
@@ -65,7 +65,7 @@ export default Vue.extend({
       plotData: null,
       showPlot: true,
       filterEmpty: true,
-      networkPlotDocs: makeNetworkPlotDocs(),
+      networkPlotDocs: this.$store.state.docs.plots.networkPlot,
     };
   },
   computed: {

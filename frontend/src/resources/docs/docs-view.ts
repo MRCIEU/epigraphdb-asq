@@ -61,10 +61,3 @@ Propoer citation details will be available shortly.
 Until then please cite this website https://asq.epigraphdb.org
 if you use ASQ.
 `;
-
-export const docsViewDocs: string[] = [
-  aboutPt0,
-  aboutPt1,
-  aboutPt2,
-  aboutCitation,
-];

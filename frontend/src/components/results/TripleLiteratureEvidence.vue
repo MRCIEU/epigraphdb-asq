@@ -41,17 +41,17 @@
       item-key="idx"
     >
       <template v-slot:header.mapping_score="{ header }">
-        <tooltip :docs="docsScores.mappingScore">
+        <tooltip :docs="$store.state.docs.scores.mappingScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.triple_score="{ header }">
-        <tooltip :docs="docsScores.tripleScore">
+        <tooltip :docs="$store.state.docs.scores.tripleScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.evidence_score="{ header }">
-        <tooltip :docs="docsScores.evidenceScore">
+        <tooltip :docs="$store.state.docs.scores.evidenceScore">
           {{ header.text }}
         </tooltip>
       </template>
@@ -143,7 +143,6 @@ import Vue from "vue";
 
 import LiteratureDialog from "@/components/widgets/LiteratureDialog.vue";
 import TripleSummaryChart from "./TripleSummaryChart.vue";
-import * as docsScores from "@/resources/docs/scores";
 
 export default Vue.extend({
   name: "TripleLiteratureEvidenceResults",
@@ -167,7 +166,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      docsScores: docsScores,
       tripleHeaders: [
         {
           text: "#",

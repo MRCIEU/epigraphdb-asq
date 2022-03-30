@@ -29,13 +29,13 @@ v-container
           v-subheader Invalid claim triples
           p
             | There are #[b {{ claimData.invalidTriples.length }}] &nbsp;
-            tooltip(:docs="entsDocs.invalidTriple") invalid triples
+            tooltip(:docs="$store.state.docs.ents.invalidTriple") invalid triples
             | &nbsp; generated from the claim text. &nbsp;
             invalid-triple-dialog(:triples="claimData.invalidTriples")
           v-subheader Valid claim triples
           p
             | There are #[b {{ claimTriples.length }}] &nbsp;
-            tooltip(:docs="entsDocs.validTriple") valid triples
+            tooltip(:docs="$store.state.docs.ents.validTriple") valid triples
             | &nbsp; generated from the claim text.
             span(style="color: #e65100") &nbsp; Select a triple
             span &nbsp; for further analysis.
@@ -65,11 +65,9 @@ import Vue from "vue";
 
 import ClaimTriple from "@/components/widgets/ClaimTriple.vue";
 import { checkStageComplete } from "@/funcs/utils.ts";
-import * as docs from "@/resources/docs/docs";
 import { Triple } from "@/types/types.ts";
 import ClaimTextDisplay from "@/components/widgets/ClaimTextDisplay.vue";
 import InvalidTripleDialog from "@/components/widgets/InvalidTripleDialog.vue";
-import * as entsDocs from "@/resources/docs/ents";
 import * as backendRequests from "@/funcs/backend_requests";
 import * as processing from "@/funcs/processing";
 
@@ -90,14 +88,15 @@ export default Vue.extend({
     return {
       title: "Select a claim triple",
       selectedTriple: null,
-      docs: docs,
-      entsDocs: entsDocs,
       loading: false,
     };
   },
   computed: {
     pageDocs(): string {
-      return this.docs.tripleSelect.split("\n").splice(1).join("\n");
+      return this.$store.state.docs.general.tripleSelect
+        .split("\n")
+        .splice(1)
+        .join("\n");
     },
     inactiveMessage(): string {
       const stageNotReachedMessage =

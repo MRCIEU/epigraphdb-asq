@@ -41,17 +41,17 @@
       item-key="idx"
     >
       <template v-slot:header.mapping_score="{ header }">
-        <tooltip :docs="docsScores.mappingScore">
+        <tooltip :docs="$store.state.docs.scores.mappingScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.assoc_score="{ header }">
-        <tooltip :docs="docsScores.assocScore">
+        <tooltip :docs="$store.state.docs.scores.assocScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.evidence_score="{ header }">
-        <tooltip :docs="docsScores.evidenceScore">
+        <tooltip :docs="$store.state.docs.scores.evidenceScore">
           {{ header.text }}
         </tooltip>
       </template>
@@ -167,10 +167,8 @@
 <script lang="ts">
 import Vue from "vue";
 
-import * as generalDocs from "@/resources/docs/docs";
 import ForestPlot from "./AssocForestPlot.vue";
 import AssocSummaryChart from "./AssocSummaryChart.vue";
-import * as docsScores from "@/resources/docs/scores";
 
 export default Vue.extend({
   name: "EvidenceResults",
@@ -190,7 +188,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      docsScores: docsScores,
       focus: false,
       assocHeaders: [
         {
@@ -246,7 +243,6 @@ export default Vue.extend({
           value: "data-table-expand",
         },
       ],
-      generalDocs: generalDocs,
     };
   },
   computed: {

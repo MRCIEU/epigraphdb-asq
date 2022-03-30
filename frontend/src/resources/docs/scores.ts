@@ -43,10 +43,3 @@ export const evidenceScore = `
 
 The evidence score <code>[0, inf)</code> is the product of the mapping score and the innate strength score, to measure the overall strength of the retrieved evidence item against the claim of interest, where a higher score denotes a stronger evidence to the claim.
 `;
-
-export const docsScores = [
-  mappingScore,
-  tripleScore,
-  assocScore,
-  evidenceScore,
-];

@@ -50,7 +50,10 @@ v-container
     v-tab-item
       .py-2
       v-container(fluid)
-        vue-markdown(:source="docsAnalysis.about", :breaks="false")
+        vue-markdown(
+          :source="$store.state.docs.analysis.about",
+          :breaks="false"
+        )
     v-tab Results
     v-tab-item
       v-row
@@ -92,31 +95,43 @@ v-container
                 dense
               )
                 template(v-slot:header.triple="{ header }")
-                  tooltip(:docs="docsEnts.validTriple") {{ header.text }}
+                  tooltip(:docs="$store.state.docs.ents.validTriple") {{ header.text }}
                 template(
                   v-slot:header.triple_evidence_supporting_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.tripleEvidenceSupporting") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.tripleEvidenceSupporting"
+                  ) {{ header.text }}
                 template(
                   v-slot:header.triple_evidence_reversal_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.tripleEvidenceReversal") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.tripleEvidenceReversal"
+                  ) {{ header.text }}
                 template(
                   v-slot:header.assoc_evidence_supporting_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.assocEvidenceSupporting") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.assocEvidenceSupporting"
+                  ) {{ header.text }}
                 template(
                   v-slot:header.assoc_evidence_reversal_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.assocEvidenceReversal") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.assocEvidenceReversal"
+                  ) {{ header.text }}
                 template(
                   v-slot:header.assoc_evidence_insufficient_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.assocEvidenceInsufficient") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.assocEvidenceInsufficient"
+                  ) {{ header.text }}
                 template(
                   v-slot:header.assoc_evidence_additional_score="{ header }"
                 )
-                  tooltip(:docs="docsAnalysis.assocEvidenceAdditional") {{ header.text }}
+                  tooltip(
+                    :docs="$store.state.docs.analysis.assocEvidenceAdditional"
+                  ) {{ header.text }}
                 template(v-slot:item.triple="{ item }")
                   .my-2
                     a(:href="item.url", target="_blank")
@@ -166,8 +181,6 @@ import * as types from "@/types/types";
 import * as networkPlot from "@/funcs/network-plot-study-analysis";
 import { PRED_MAPPING, PRED_GROUP } from "@/store/ents";
 import LiteratureSource from "@/components/widgets/AnalysisLiteratureDialog.vue";
-import * as docsAnalysis from "@/resources/docs/analysis";
-import * as docsEnts from "@/resources/docs/ents";
 
 const VIEW_TITLE = "ASQ: analysis";
 
@@ -181,8 +194,6 @@ export default Vue.extend({
   data() {
     return {
       resultsTab: 1,
-      docsAnalysis: docsAnalysis,
-      docsEnts: docsEnts,
       showDocsTooltip: true,
       analysisData: null,
       baseData: null,

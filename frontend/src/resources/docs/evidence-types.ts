@@ -1,6 +1,7 @@
-type EvidenceDocs = Record<string, Record<string, string>>;
-
-export const tripleLiteratureEvidenceTypes: EvidenceDocs = {
+export const tripleLiteratureEvidenceTypes: Record<
+  string,
+  Record<string, string>
+> = {
   directional: {
     supporting: `
 **Supporting evidence (directional)**: <br/>
@@ -60,7 +61,7 @@ a *contradictory* evidence category.
   },
 };
 
-export const assocEvidenceTypes: EvidenceDocs = {
+export const assocEvidenceTypes: Record<string, Record<string, string>> = {
   undirectional: {
     supporting: `
 **Supporting evidence (non-directional)**: <br/>

@@ -11,17 +11,17 @@
     </v-card-title>
     <v-data-table :headers="headers" :items="items" :search="search">
       <template v-slot:header.ic_score="{ header }">
-        <tooltip :docs="docsParams.paramIcScore">
+        <tooltip :docs="$store.state.docs.params.paramIcScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.identity_score="{ header }">
-        <tooltip :docs="docsParams.paramIdentityScore">
+        <tooltip :docs="$store.state.docs.params.paramIdentityScore">
           {{ header.text }}
         </tooltip>
       </template>
       <template v-slot:header.similarity_score="{ header }">
-        <tooltip :docs="docsParams.paramSimilarityScore">
+        <tooltip :docs="$store.state.docs.params.paramSimilarityScore">
           {{ header.text }}
         </tooltip>
       </template>
@@ -71,7 +71,6 @@
 <script lang="ts">
 import Vue from "vue";
 import { refEntValid } from "@/funcs/utils";
-import * as docsParams from "@/resources/docs/params";
 
 export default Vue.extend({
   name: "EfoMappingTable",
@@ -87,7 +86,6 @@ export default Vue.extend({
   data() {
     return {
       search: "",
-      docsParams: docsParams,
       headers: [
         {
           text: "Entity",

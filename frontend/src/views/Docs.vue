@@ -8,8 +8,14 @@ v-container
         v-card-title
           h2#about(ref="about", v-intersect="onIntersect") Annotated Semantic Queries (ASQ)
         v-card-text
-          vue-markdown(:source="docsView.aboutInit", :breaks="false")
-          vue-markdown(:source="docsView.aboutCitation", :breaks="false")
+          vue-markdown(
+            :source="$store.state.docs.about.aboutInit",
+            :breaks="false"
+          )
+          vue-markdown(
+            :source="$store.state.docs.about.aboutCitation",
+            :breaks="false"
+          )
       v-divider.py-3
       //- # Terminology
       v-card
@@ -18,10 +24,19 @@ v-container
         v-card-text
           v-row
             v-col
-              vue-markdown(:source="docsView.aboutPt0", :breaks="false")
-              vue-markdown(:source="docsView.aboutPt1", :breaks="false")
+              vue-markdown(
+                :source="$store.state.docs.about.aboutPt0",
+                :breaks="false"
+              )
+              vue-markdown(
+                :source="$store.state.docs.about.aboutPt1",
+                :breaks="false"
+              )
             v-col
-              vue-markdown(:source="docsView.aboutPt2", :breaks="false")
+              vue-markdown(
+                :source="$store.state.docs.about.aboutPt2",
+                :breaks="false"
+              )
       v-divider.py-3
       v-row
         v-col
@@ -30,7 +45,7 @@ v-container
             v-card-title
               h2#ents(ref="ents", v-intersect="onIntersect") Entities
             v-card-text
-              p(v-for="(item, idx) in entsDocs", :key="idx")
+              p(v-for="(item, idx) in $store.state.docs.ents", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
         v-col
           //- # Params
@@ -38,7 +53,7 @@ v-container
             v-card-title
               h2#params(ref="params", v-intersect="onIntersect") Parameters
             v-card-text
-              p(v-for="(item, idx) in params", :key="idx")
+              p(v-for="(item, idx) in $store.state.docs.params", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
       v-divider.py-3
       v-row
@@ -59,6 +74,7 @@ v-container
               p(v-for="(item, idx) in componentDocs", :key="idx")
                 vue-markdown(:source="item", :breaks="false")
       v-divider.py-3
+      //- # Triple and literature evidence
       v-card
         v-card-title
           h2#triple-literature-evidence(
@@ -70,38 +86,14 @@ v-container
             v-col
               h4 Directional predicates
               p(
-                v-for="(item, idx) in tripleEvidenceDocs.directional",
+                v-for="(item, idx) in $store.state.docs.evidence.tripleLiteratureEvidenceTypes.directional",
                 :key="idx"
               )
                 vue-markdown(:source="item", :breaks="false")
             v-col
               h4 Non-directional predicates
               p(
-                v-for="(item, idx) in tripleEvidenceDocs.undirectional",
-                :key="idx"
-              )
-                vue-markdown(:source="item", :breaks="false")
-      v-divider.py-3
-      //- # Triple and literature evidence
-      v-card
-        v-card-title
-          h2#triple-literature-evidence(
-            ref="triple-literature-evidence",
-            v-intersect="onIntersect"
-          ) Knowledge triple and literature evidence types
-        v-card-text
-          v-row
-            v-col
-              h4 Directional predicates
-              p(
-                v-for="(item, idx) in tripleEvidenceDocs.directional",
-                :key="idx"
-              )
-                vue-markdown(:source="item", :breaks="false")
-            v-col
-              h4 Non-directional predicates
-              p(
-                v-for="(item, idx) in tripleEvidenceDocs.undirectional",
+                v-for="(item, idx) in $store.state.docs.evidence.tripleLiteratureEvidenceTypes.undirectional",
                 :key="idx"
               )
                 vue-markdown(:source="item", :breaks="false")
@@ -115,14 +107,14 @@ v-container
             v-col
               h4 Directional predicates
               p(
-                v-for="(item, idx) in assocEvidenceDocs.directional",
+                v-for="(item, idx) in $store.state.docs.evidence.assocEvidenceTypes.directional",
                 :key="idx"
               )
                 vue-markdown(:source="item", :breaks="false")
             v-col
               h4 Non-directional predicates
               p(
-                v-for="(item, idx) in assocEvidenceDocs.undirectional",
+                v-for="(item, idx) in $store.state.docs.evidence.assocEvidenceTypes.undirectional",
                 :key="idx"
               )
                 vue-markdown(:source="item", :breaks="false")
@@ -134,18 +126,18 @@ v-container
         v-card-text
           v-row
             v-col
-              vue-markdown(:source="docsScores.mappingScore")
-              vue-markdown(:source="docsScores.evidenceScore")
+              vue-markdown(:source="$store.state.docs.scores.mappingScore")
+              vue-markdown(:source="$store.state.docs.scores.evidenceScore")
             v-col
-              vue-markdown(:source="docsScores.tripleScore")
-              vue-markdown(:source="docsScores.assocScore")
+              vue-markdown(:source="$store.state.docs.scores.tripleScore")
+              vue-markdown(:source="$store.state.docs.scores.assocScore")
       v-divider.py-3
       //- # medrxiv analysis
       v-card
         v-card-title
           h2#analysis(ref="analysis", v-intersect="onIntersect") MedRxiv analysis
         v-card-text
-          vue-markdown(:source="docsAnalysis.about")
+          vue-markdown(:source="$store.state.docs.analysis.about")
     // Sidebar
     v-col(cols="2")
       toc(:outline="outline", @goto="jump")
@@ -156,18 +148,6 @@ import Vue from "vue";
 import _ from "lodash";
 
 import Toc from "@/components/widgets/Toc.vue";
-import {
-  makeNetworkPlotDocs,
-  makeOntologyPlotDocs,
-} from "@/funcs/network-plot";
-
-import * as evidenceTypesDocs from "@/resources/docs/evidence-types";
-import * as params from "@/resources/docs/params";
-import * as ents from "@/resources/docs/ents";
-import * as docs from "@/resources/docs/docs";
-import * as docsView from "@/resources/docs/docs-view";
-import * as docsScores from "@/resources/docs/scores";
-import * as docsAnalysis from "@/resources/docs/analysis";
 
 const VIEW_TITLE = "ASQ: docs";
 
@@ -230,16 +210,6 @@ export default Vue.extend({
           focus: false,
         },
       },
-      docsView: docsView,
-      docsAnalysis: docsAnalysis,
-      docsScores: docsScores,
-      evidenceTypesDocs: _.chain(evidenceTypesDocs)
-        .mapValues((items) => items)
-        .value(),
-      entsDocs: _.chain(ents)
-        .mapValues((items) => items)
-        .value(),
-      params: _.chain(params).values().value(),
       stageDocs: _.chain([
         // be verbose
         "queryParsing",
@@ -249,7 +219,7 @@ export default Vue.extend({
         "tripleLiteratureEvidence",
         "assocEvidence",
       ])
-        .map((key) => docs[key])
+        .map((key) => this.$store.state.docs.general[key])
         .value(),
     };
   },
@@ -260,7 +230,7 @@ export default Vue.extend({
         .value();
     },
     tripleEvidenceDocs(): Record<string, Array<string>> {
-      const baseDocs = this.evidenceTypesDocs.tripleLiteratureEvidenceTypes;
+      const baseDocs = this.$store.state.evidence.tripleLiteratureEvidenceTypes;
       const res = _.chain(baseDocs)
         .mapValues((items) => {
           const res = _.chain(items).values().value();
@@ -270,7 +240,7 @@ export default Vue.extend({
       return res;
     },
     assocEvidenceDocs(): Record<string, Array<string>> {
-      const baseDocs = this.evidenceTypesDocs.assocEvidenceTypes;
+      const baseDocs = this.$store.state.evidence.assocEvidenceTypes;
       const res = _.chain(baseDocs)
         .mapValues((items) => {
           const res = _.chain(items).values().value();
@@ -280,11 +250,7 @@ export default Vue.extend({
       return res;
     },
     componentDocs(): string[] {
-      const networkPlotDocs = makeNetworkPlotDocs();
-      const ontologyPlotDocs = makeOntologyPlotDocs();
-      const res = _.chain([networkPlotDocs, ontologyPlotDocs])
-        .flatten()
-        .value();
+      const res = this._.chain(this.$store.state.docs.plots).values().value();
       return res;
     },
   },

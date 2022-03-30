@@ -7,6 +7,7 @@ import { ents, entsState } from "./ents";
 import { params, paramsState } from "./params";
 import { evidence, evidenceState } from "./evidence";
 import { snackbar, snackbarState } from "./snackbar";
+import { docs, docsState } from "./docs";
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export type State = {
   ents: entsState;
   params: paramsState;
   evidence: evidenceState;
+  docs: docsState;
 };
 
 const store = new Vuex.Store<State>({
@@ -27,6 +29,7 @@ const store = new Vuex.Store<State>({
     ents: ents,
     params: params,
     evidence: evidence,
+    docs: docs,
   },
 });
 

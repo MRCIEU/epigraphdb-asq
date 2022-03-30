@@ -13,7 +13,10 @@
         <p class="blockquote">
           <vue-markdown
             :source="
-              generalDocs.evidenceSummary.split('\n').splice(1).join('\n')
+              $store.state.docs.general.evidenceSummary
+                .split('\n')
+                .splice(1)
+                .join('\n')
             "
             :breaks="false"
           />
@@ -62,7 +65,7 @@
         <p class="blockquote">
           <vue-markdown
             :source="
-              generalDocs.tripleLiteratureEvidence
+              $store.state.docs.general.tripleLiteratureEvidence
                 .split('\n')
                 .splice(1)
                 .join('\n')
@@ -124,7 +127,12 @@
         </h2>
         <p class="blockquote">
           <vue-markdown
-            :source="generalDocs.assocEvidence.split('\n').splice(1).join('\n')"
+            :source="
+              $store.state.docs.general.assocEvidence
+                .split('\n')
+                .splice(1)
+                .join('\n')
+            "
             :breaks="false"
           />
         </p>
@@ -206,7 +214,6 @@ import {
   assocEvidenceTypes as assocEvidenceTypeDocs,
   tripleLiteratureEvidenceTypes as tripleEvidenceTypeDocs,
 } from "@/resources/docs/evidence-types";
-import * as generalDocs from "@/resources/docs/docs";
 
 import EvidenceSummary from "./Summary.vue";
 import AssocEvidenceResults from "./AssocEvidence.vue";
@@ -235,7 +242,6 @@ export default Vue.extend({
       maxLoadingStage: 6 as number,
       summaryData: null as any,
       plotData: null as any,
-      generalDocs: generalDocs,
     };
   },
   computed: {

@@ -36,17 +36,6 @@ v-container
 <script lang="ts">
 import Vue from "vue";
 
-import * as evidenceTypesDocs from "@/resources/docs/evidence-types";
-import * as params from "@/resources/docs/params";
-import * as ents from "@/resources/docs/ents";
-import * as generalDocs from "@/resources/docs/docs";
-import * as docsView from "@/resources/docs/docs-view";
-import * as docsScores from "@/resources/docs/scores";
-import {
-  makeNetworkPlotDocs,
-  makeOntologyPlotDocs,
-} from "@/funcs/network-plot";
-
 export default Vue.extend({
   name: "LoadingScreen",
   components: {
@@ -66,8 +55,6 @@ export default Vue.extend({
     carousel: 0,
     docList: [],
     numDocs: 10,
-    docsViewDocs: docsView,
-    docsScores: docsScores,
   }),
   computed: {
     testLoading(): boolean {
@@ -83,45 +70,16 @@ export default Vue.extend({
       return regular;
     },
   },
-  mounted: function () {
-    this.docList = this.makeDocs();
+  mounted: async function () {
+    this.docList = await this.getDocs();
   },
   methods: {
-    makeDocs(): string[] {
-      const paramDocs = this._.values(params);
-      const entsDocs = this._.values(ents);
-      const general = this._.values(generalDocs);
-      const networkPlotDocs = makeNetworkPlotDocs();
-      const ontologyPlotDocs = makeOntologyPlotDocs();
-      const aboutDocs = this.docsViewDocs.docsViewDocs;
-      const networkDocs = [networkPlotDocs, ontologyPlotDocs];
-      const evidenceTypeDocs = this._.chain([
-        evidenceTypesDocs.tripleLiteratureEvidenceTypes.directional,
-        evidenceTypesDocs.tripleLiteratureEvidenceTypes.undirectional,
-        evidenceTypesDocs.assocEvidenceTypes.undirectional,
-        evidenceTypesDocs.assocEvidenceTypes.directional,
-      ])
-        .map((item) => this._.values(item))
-        .flatten()
-        .value();
-      const docGroups = [
-        aboutDocs,
-        networkDocs,
-        general,
-        entsDocs,
-        paramDocs,
-        evidenceTypeDocs,
-        docsScores.docsScores,
-      ];
-      const fullDocs = this._.chain(docGroups)
-        .flatten()
-        .filter((e) => typeof e == "string")
-        .value();
+    async getDocs(): Promise<string[]> {
+      const fullDocs = await this.$store.getters["docs/getFlattenDocs"];
       if (this.testLoading) {
         return fullDocs;
       }
-      const res = this._.sampleSize(fullDocs, this.numDocs);
-      return res;
+      return this._.sampleSize(fullDocs, this.numDocs);
     },
   },
 });
