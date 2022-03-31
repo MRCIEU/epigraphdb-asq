@@ -29,77 +29,65 @@ export type docsState = {
 
 type Context = ActionContext<docsState, State>;
 
-const aboutDocs = _.chain(about)
-  .mapValues((o) => o)
-  .value();
-const generalDocs = _.chain(general)
-  .mapValues((o) => o)
-  .value();
-const entsDocs = _.chain(ents)
-  .mapValues((o) => o)
-  .value();
-const paramsDocs = _.chain(params)
-  .mapValues((o) => o)
-  .value();
-const analysisDocs = _.chain(analysis)
-  .mapValues((o) => o)
-  .value();
-const scoresDocs = _.chain(scores)
-  .mapValues((o) => o)
-  .value();
-const evidenceDocs = {
-  tripleLiteratureEvidenceTypes: evidence.tripleLiteratureEvidenceTypes,
-  assocEvidenceTypes: evidence.assocEvidenceTypes,
-};
-const evidenceDocsFlat = _.chain([
-  evidence.tripleLiteratureEvidenceTypes.directional,
-  evidence.tripleLiteratureEvidenceTypes.undirectional,
-  evidence.assocEvidenceTypes.undirectional,
-  evidence.assocEvidenceTypes.directional,
-])
-  .map((item) => _.values(item))
-  .flatten()
-  .value();
 const networkPlotDocs = makeNetworkPlotDocs();
 const ontologyPlotDocs = makeOntologyPlotDocs();
-const plotsDocs = {
-  networkPlot: networkPlotDocs,
-  ontologyPlot: ontologyPlotDocs,
-};
 
 export const docs = {
   namespaced: true,
   state: (): docsState => ({
-    about: aboutDocs,
-    general: generalDocs,
-    ents: entsDocs,
-    evidence: evidenceDocs,
-    params: paramsDocs,
-    scores: scores,
-    plots: plotsDocs,
-    analysis: analysisDocs,
+    about: _.chain(about)
+      .mapValues((o) => o)
+      .value(),
+    general: _.chain(general)
+      .mapValues((o) => o)
+      .value(),
+    ents: _.chain(ents)
+      .mapValues((o) => o)
+      .value(),
+    evidence: {
+      tripleLiteratureEvidenceTypes: evidence.tripleLiteratureEvidenceTypes,
+      assocEvidenceTypes: evidence.assocEvidenceTypes,
+    },
+    params: _.chain(params)
+      .mapValues((o) => o)
+      .value(),
+    scores: _.chain(scores)
+      .mapValues((o) => o)
+      .value(),
+    plots: {
+      networkPlot: networkPlotDocs,
+      ontologyPlot: ontologyPlotDocs,
+    },
+    analysis: _.chain(analysis)
+      .mapValues((o) => o)
+      .value(),
   }),
   getters: {
     getFlattenDocs: (state: docsState): string[] => {
-      return makeDocs();
+      const evidenceDocsFlat = _.chain([
+        evidence.tripleLiteratureEvidenceTypes.directional,
+        evidence.tripleLiteratureEvidenceTypes.undirectional,
+        evidence.assocEvidenceTypes.undirectional,
+        evidence.assocEvidenceTypes.directional,
+      ])
+        .map((item) => _.values(item))
+        .flatten()
+        .value();
+      const flatDocs = _.chain([
+        "about",
+        "general",
+        "ents",
+        "params",
+        "scores",
+        "plots",
+      ])
+        .map((k) => _.chain(state[k]).values().value())
+        .flatten()
+        .filter((e) => typeof e == "string")
+        .value();
+      const otherFlatDocs = evidenceDocsFlat.concat([state.analysis.about]);
+      const fullDocs = flatDocs.concat(otherFlatDocs);
+      return fullDocs;
     },
   },
 };
-
-function makeDocs(): string[] {
-  const plotsDocsFlat = _.chain(plotsDocs).values().value();
-  const docGroups = [
-    aboutDocs,
-    plotsDocsFlat,
-    generalDocs,
-    entsDocs,
-    paramsDocs,
-    evidenceDocsFlat,
-    scoresDocs,
-  ];
-  const fullDocs = _.chain(docGroups)
-    .flatten()
-    .filter((e) => typeof e == "string")
-    .value();
-  return fullDocs;
-}

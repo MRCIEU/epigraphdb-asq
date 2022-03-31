@@ -41,5 +41,7 @@ The strength score is a constituent score to the final <code>evidence score</cod
 export const evidenceScore = `
 **Evidence score**: <br/>
 
-The evidence score <code>[0, inf)</code> is the product of the mapping score and the innate strength score, to measure the overall strength of the retrieved evidence item against the claim of interest, where a higher score denotes a stronger evidence to the claim.
+The evidence score <code>[0, inf)</code> is computed as the product of the mapping score and the innate strength score, to measure the overall strength of the retrieved evidence item against the claim of interest, where a higher score denotes a stronger evidence to the claim.
+
+The evidence score is primarily a metric to assist the evaluation of an evidence item against another item, or a group of evidence against another group, however researchers <b>should not</b> simply rely on overly simplified metrics as a substitute for the thorough investigation of the retrieved evidence.
 `;

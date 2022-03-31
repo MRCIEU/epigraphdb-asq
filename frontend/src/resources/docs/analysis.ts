@@ -22,11 +22,19 @@ In the default unconfigured state, the size of an edge is measured by the aggreg
 export const tripleEvidenceSupporting = `
 Supporting evidence type for the triple and literature evidence group.
 
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
+
 Further details can be found on the documentation page.
 `;
 
 export const tripleEvidenceReversal = `
 Reversal evidence type for the triple and literature evidence group.
+
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
 
 Further details can be found on the documentation page.
 `;
@@ -34,11 +42,19 @@ Further details can be found on the documentation page.
 export const assocEvidenceSupporting = `
 Supporting evidence type for the association evidence group.
 
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
+
 Further details can be found on the documentation page.
 `;
 
 export const assocEvidenceReversal = `
 Reversal evidence type for the association evidence group.
+
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
 
 Further details can be found on the documentation page.
 `;
@@ -46,11 +62,19 @@ Further details can be found on the documentation page.
 export const assocEvidenceInsufficient = `
 Insufficient evidence type for the association evidence group.
 
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
+
 Further details can be found on the documentation page.
 `;
 
 export const assocEvidenceAdditional = `
 Additional evidence type for the association evidence group.
+
+The column reports values in the format of <code>A (B)</code>,
+where <code>A</code> denotes the aggregated score within the evidence type,
+and <code>B</code> denotes the number of retrieved evidence items.
 
 Further details can be found on the documentation page.
 `;
