@@ -17,7 +17,7 @@
         <v-tooltip v-model="showDocsTooltip" top>
           <template v-slot:activator="{ on, attrs }">
             <v-btn x-small tile text dark href="/docs" target="_blank">
-              <div class="pt-1">
+              <div>
                 <span v-bind="attrs" v-on="on">Docs</span>
               </div>
             </v-btn>

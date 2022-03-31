@@ -75,6 +75,9 @@ export default Vue.extend({
       }
     },
   },
+  mounted: async function (): Promise<void> {
+    await this.$store.dispatch("queryStage/setQueryMode", "standard");
+  },
   methods: {
     //
   },

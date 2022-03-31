@@ -256,6 +256,7 @@ export default Vue.extend({
   },
   mounted: function () {
     document.title = VIEW_TITLE;
+    this.$store.dispatch("queryStage/setQueryMode", "off");
   },
   methods: {
     onIntersect(entries): void {

@@ -302,6 +302,7 @@ export default Vue.extend({
   },
   mounted: async function () {
     document.title = VIEW_TITLE;
+    await this.$store.dispatch("queryStage/setQueryMode", "off");
     this.analysisData = await backendRequests.getAnalysisData();
     this.termOptions = this._.chain(this.analysisData)
       .map((e) => [e["subject_term"], e["object_term"]])

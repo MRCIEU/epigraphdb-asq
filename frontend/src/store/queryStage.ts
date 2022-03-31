@@ -3,6 +3,7 @@ import { State } from ".";
 
 export type queryStageState = {
   standardQueryMode: boolean;
+  tripleQueryMode: boolean;
   currentStage: number;
   latestStage: number;
   maxStageStandard: number;
@@ -10,11 +11,13 @@ export type queryStageState = {
 };
 
 type Context = ActionContext<queryStageState, State>;
+type QueryMode = "standard" | "triple" | "off";
 
 export const queryStage = {
   namespaced: true,
   state: (): queryStageState => ({
-    standardQueryMode: true,
+    standardQueryMode: false,
+    tripleQueryMode: false,
     currentStage: 1,
     latestStage: 1,
     maxStageStandard: 4,
@@ -24,8 +27,10 @@ export const queryStage = {
     queryAllDone(state: queryStageState): boolean {
       if (state.standardQueryMode) {
         return state.latestStage == state.maxStageStandard;
-      } else {
+      } else if (state.tripleQueryMode) {
         return state.latestStage == state.maxStageTriple;
+      } else {
+        return true;
       }
     },
     stageAction(state: queryStageState): string {
@@ -43,8 +48,10 @@ that represent query subjects and objects.`,
       ];
       if (state.standardQueryMode) {
         return standardActions[idx];
-      } else {
+      } else if (state.tripleQueryMode) {
         return tripleActions[idx];
+      } else {
+        return ``;
       }
     },
   },
@@ -59,13 +66,22 @@ that represent query subjects and objects.`,
         state.latestStage = nextStage;
       }
     },
-    setNonStandardQuery(state: queryStageState): void {
-      state.standardQueryMode = false;
+    setQueryMode(state: queryStageState, mode: QueryMode): void {
+      if (mode == "standard") {
+        state.standardQueryMode = true;
+        state.tripleQueryMode = false;
+      } else if (mode == "triple") {
+        state.standardQueryMode = false;
+        state.tripleQueryMode = true;
+      } else {
+        state.standardQueryMode = false;
+        state.tripleQueryMode = false;
+      }
     },
   },
   actions: {
-    setNonStandardQuery(context: Context): void {
-      context.commit("setNonStandardQuery");
+    setQueryMode(context: Context, mode: QueryMode): void {
+      context.commit("setQueryMode", mode);
     },
     setCurrentStage(context: Context, stage: number): void {
       context.commit("setCurrentStage", stage);

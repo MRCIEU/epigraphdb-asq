@@ -232,7 +232,7 @@ export default Vue.extend({
   },
   mounted: async function (): Promise<boolean> {
     document.title = VIEW_TITLE;
-    await this.$store.dispatch("queryStage/setNonStandardQuery");
+    await this.$store.dispatch("queryStage/setQueryMode", "triple");
     await this.configParams();
     if (this.tripleValid) {
       const allGood = await this.getData();
