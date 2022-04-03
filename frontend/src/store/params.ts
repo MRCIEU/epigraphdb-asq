@@ -27,11 +27,11 @@ export const params = {
     claimTextMaxCharLen: 5000,
     ontologyNumCandidates: 15,
     ontologySimilarityScoreThreshold: 0.7,
-    ontologyIdentityScoreThreshold: 1,
+    ontologyIdentityScoreThreshold: 1.5,
     ontologyIcScoreThreshold: 0.6,
     ontologyNumEnts: 5,
     postOntologyNumCandidates: 20,
-    postOntologySimilarityScoreThreshold: 0.6,
+    postOntologySimilarityScoreThreshold: 0.7,
     assocPvalThreshold: "1e-2",
   }),
   getters: {
@@ -49,4 +49,14 @@ export const params = {
       context.commit("updateParam", payload);
     },
   },
+};
+
+export const analysisParams = {
+  ontologyNumCandidates: 10,
+  ontologySimilarityScoreThreshold: 0.7,
+  ontologyIdentityScoreThreshold: 1.5,
+  ontologyIcScoreThreshold: 0.6,
+  postOntologyNumCandidates: 20,
+  postOntologySimilarityScoreThreshold: 0.7,
+  assocPvalThreshold: "1e-2",
 };

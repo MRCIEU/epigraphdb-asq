@@ -101,6 +101,7 @@ import _ from "lodash";
 import * as backendRequests from "@/funcs/backend_requests";
 import * as processing from "@/funcs/processing";
 import * as types from "@/types/types.ts";
+import { analysisParams } from "@/store/params";
 import Evidence from "@/components/results/Evidence.vue";
 import Loading from "@/components/widgets/Loading.vue";
 import { PRED_MAPPING } from "@/store/ents";
@@ -138,15 +139,7 @@ export default Vue.extend({
       ontologyEntSubject: null,
       ontologyEntObject: null,
       useAnalysisParams: false,
-      analysisParams: {
-        ontologyNumCandidates: 30,
-        ontologySimilarityScoreThreshold: 0.7,
-        ontologyIdentityScoreThreshold: 0.6,
-        ontologyIcScoreThreshold: 1.5,
-        postOntologyNumCandidates: 20,
-        postOntologySimilarityScoreThreshold: 0.7,
-        assocPvalThreshold: "1e-2",
-      },
+      analysisParams: analysisParams,
       // ac
       useAc: false,
       isPromptSubjectLoading: false,

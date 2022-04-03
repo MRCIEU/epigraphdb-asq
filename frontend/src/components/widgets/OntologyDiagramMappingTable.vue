@@ -30,7 +30,7 @@
       </template>
       <template v-slot:item.similarity_score="{ item }">
         <div>
-          {{ item.similarity_score.toFixed(2) }}
+          {{ sanitiseSimScore(item.similarity_score).toFixed(2) }}
         </div>
       </template>
     </v-data-table>
@@ -82,7 +82,9 @@ export default Vue.extend({
     },
   },
   methods: {
-    //
+    sanitiseSimScore(score: number): number {
+      return Math.abs(score);
+    },
   },
 });
 </script>
