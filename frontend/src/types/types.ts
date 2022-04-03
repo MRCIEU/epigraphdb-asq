@@ -312,6 +312,7 @@ export type AnalysisResultsData = Array<{
   doi: Array<{
     doi: string;
     title: string;
+    context: string;
   }>;
   doi_count: number;
   // triple

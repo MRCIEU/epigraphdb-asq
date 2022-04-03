@@ -11,7 +11,11 @@ div
           b \#{{ idx }}: &nbsp;
           span.font-weight-thin {{ e.doi }}
           br
+          span title: &nbsp;
           a(:href="e.url", target="_blank") {{ e.title }}
+          br
+          span Context
+          p.blockquote.font-weight-thin {{ e.context }}
 </template>
 
 <script lang="ts">
@@ -25,7 +29,9 @@ export default Vue.extend({
   },
   props: {
     sourceData: {
-      type: Array as PropType<Array<{ doi: string; title: string }>>,
+      type: Array as PropType<
+        Array<{ doi: string; title: string; context: string }>
+      >,
       required: true,
     },
     triple: {
