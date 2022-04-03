@@ -7,7 +7,7 @@ div
       v-card-title Literature detail: #[code {{ triple }}]
       v-divider
       v-card-text
-        .py-3(v-for="(e, idx) in literatureData", key="idx")
+        .py-3(v-for="(e, idx) in literatureData", :key="idx")
           b \#{{ idx }}: &nbsp;
           span.font-weight-thin {{ e.doi }}
           br
