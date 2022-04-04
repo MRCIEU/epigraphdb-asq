@@ -12,6 +12,12 @@ v-container
             :source="$store.state.docs.about.aboutInit",
             :breaks="false"
           )
+          .d-flex.flex-column.align-center.justify-space-between
+            v-img(
+              :src="require('@/assets/asq-architecture-diagram.png')",
+              max-width="960px",
+              contain
+            )
           vue-markdown(
             :source="$store.state.docs.about.aboutCitation",
             :breaks="false"
