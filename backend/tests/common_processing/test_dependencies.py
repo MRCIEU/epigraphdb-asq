@@ -21,8 +21,16 @@ def test_semrep():
 
 def test_melodi_presto():
     lit_id = "21782230"
-    url = "{url}/sentence/".format(url=config.melodi_presto_api_url)
-    payload = {"pmid": lit_id}
+    # url = "{url}/sentence/".format(url=config.melodi_presto_api_url)
+    # payload = {"pmid": lit_id}
+    url = "{url}/components/melodi-presto".format(
+        url=config.epigraphdb_web_backend_url
+    )
+    payload = {
+        "endpoint": "/sentence/",
+        "method": "POST",
+        "params": {"pmid": lit_id},
+    }
     r = requests.post(url, json=payload)
     results = r.json()["data"]
     pprint(results)

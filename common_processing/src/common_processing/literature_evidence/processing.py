@@ -155,8 +155,17 @@ def get_sentence_df(
 ) -> DataFrame[_SentenceDf]:
     @pa.check_types
     def _query(lit_id: str, triple_lower: str) -> DataFrame[_SentenceQueryDf]:
-        url = "{url}/sentence/".format(url=config.melodi_presto_api_url)
-        r = requests.post(url, json={"pmid": str(lit_id)})
+        # url = "{url}/sentence/".format(url=config.melodi_presto_api_url)
+        # r = requests.post(url, json={"pmid": str(lit_id)})
+        url = "{url}/components/melodi-presto".format(
+            url=config.epigraphdb_web_backend_url
+        )
+        payload = {
+            "endpoint": "/sentence/",
+            "method": "POST",
+            "params": {"pmid": lit_id},
+        }
+        r = requests.post(url, json=payload)
         r.raise_for_status()
         results = r.json()["data"]
         df = pd.json_normalize(results)

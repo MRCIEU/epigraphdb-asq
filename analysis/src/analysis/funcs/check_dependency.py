@@ -17,8 +17,13 @@ def check_component_status(verbose: bool = False):
         ic(config.neural_transformers_url)
     r = requests.get(f"{config.semrep_api_url}/status")
     semrep_api_url_status = r.ok
-    melodi_presto_status = requests.get(
-        f"{config.melodi_presto_api_url}/status/"
+    melodi_presto_status = requests.post(
+        "{url}/components/melodi-presto".format(url=config.epigraphdb_web_backend_url),
+        json={
+            "endpoint": "/status/",
+            "method": "GET",
+            "params": None
+        }
     ).json()
     text_base_status = requests.get(
         f"{config.text_base_api_url}/status/"
