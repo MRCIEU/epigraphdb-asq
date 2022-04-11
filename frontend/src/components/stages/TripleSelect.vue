@@ -17,47 +17,60 @@ v-container
       )
         v-progress-circular(v-if="loading", indeterminate, color="grey")
         span {{ btnLabel }}
-    div(v-if="!active")
-      v-alert(:type="tripleResultsEmpty ? 'error' : 'info'") {{ inactiveMessage }}
-    div(v-else)
-      v-row
-        v-col(cols="4")
-          h3 Original claim text
-          claim-text-display(v-if="claimText", :sents="claimText")
-        v-col(cols="8")
-          h3 Parsed triple results
-          v-subheader Invalid claim triples
-          p
-            | There are #[b {{ claimData.invalidTriples.length }}] &nbsp;
-            tooltip(:docs="$store.state.docs.ents.invalidTriple") invalid triples
-            | &nbsp; generated from the claim text. &nbsp;
-            invalid-triple-dialog(:triples="claimData.invalidTriples")
-          v-subheader Valid claim triples
-          p
-            | There are #[b {{ claimTriples.length }}] &nbsp;
-            tooltip(:docs="$store.state.docs.ents.validTriple") valid triples
-            | &nbsp; generated from the claim text.
-            span(style="color: #e65100") &nbsp; Select a triple
-            span &nbsp; for further analysis.
-          v-radio-group.triple-radio-group(v-model="selectedTriple")
-            div(v-for="item in claimTriples", :key="item.idx")
-              .py-2
-                v-radio(:value="item")
-                  template(v-slot:label="")
-                    b \#{{ item.idx }}
-                    | : &nbsp;
-                    v-chip.ma-2(outlined, label, color="primary")
-                      code.font-weight-bold.body-1(
-                        style="background-color: transparent"
-                      ) {{ item.sub_term }} -
-                        | {{ item.pred }} -> {{ item.obj_term }}
-                .pl-5
-                  .pl-5.pt-1
-                  span Details
-                  claim-triple(
-                    :item="item",
-                    :html-text="htmlDisplay[item.idx].text"
-                  )
+  div(v-if="!active")
+    br
+    v-alert(:type="tripleResultsEmpty ? 'error' : 'info'") {{ inactiveMessage }}
+    div(v-if="$store.state.queryStage.latestStage >= stage")
+      v-subheader Invalid claim triples
+      p
+        | There are #[b {{ invalidTriples.length }}] &nbsp;
+        tooltip(:docs="$store.state.docs.ents.invalidTriple") invalid triples
+        | &nbsp; generated from the claim text. &nbsp;
+        invalid-triple-dialog(:triples="invalidTriples")
+      v-subheader Valid claim triples
+      p
+        | There are no &nbsp;
+        tooltip(:docs="$store.state.docs.ents.validTriple") valid triples
+        | &nbsp; generated from the claim text.
+  div(v-else)
+    v-row
+      v-col(cols="4")
+        h3 Original claim text
+        claim-text-display(v-if="claimText", :sents="claimText")
+      v-col(cols="8")
+        h3 Parsed triple results
+        v-subheader Invalid claim triples
+        p
+          | There are #[b {{ invalidTriples.length }}] &nbsp;
+          tooltip(:docs="$store.state.docs.ents.invalidTriple") invalid triples
+          | &nbsp; generated from the claim text. &nbsp;
+          invalid-triple-dialog(:triples="invalidTriples")
+        v-subheader Valid claim triples
+        p
+          | There are #[b {{ claimTriples.length }}] &nbsp;
+          tooltip(:docs="$store.state.docs.ents.validTriple") valid triples
+          | &nbsp; generated from the claim text.
+          span(style="color: #e65100") &nbsp; Select a triple
+          span &nbsp; for further analysis.
+        v-radio-group.triple-radio-group(v-model="selectedTriple")
+          div(v-for="item in claimTriples", :key="item.idx")
+            .py-2
+              v-radio(:value="item")
+                template(v-slot:label="")
+                  b \#{{ item.idx }}
+                  | : &nbsp;
+                  v-chip.ma-2(outlined, label, color="primary")
+                    code.font-weight-bold.body-1(
+                      style="background-color: transparent"
+                    ) {{ item.sub_term }} -
+                      | {{ item.pred }} -> {{ item.obj_term }}
+              .pl-5
+                .pl-5.pt-1
+                span Details
+                claim-triple(
+                  :item="item",
+                  :html-text="htmlDisplay[item.idx].text"
+                )
 </template>
 
 <script lang="ts">
@@ -129,6 +142,9 @@ export default Vue.extend({
     },
     claimTriples(): Array<Triple> {
       return this.claimData.claimTriples;
+    },
+    invalidTriples(): Array<Record<string, any>> {
+      return this.$store.state.claimData.invalidTriples;
     },
     htmlDisplay(): Array<string> {
       return this.claimData.htmlDisplay;
