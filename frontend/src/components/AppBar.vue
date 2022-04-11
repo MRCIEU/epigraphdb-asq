@@ -3,7 +3,8 @@
     <v-toolbar-title>
       <tooltip :docs="`Back to the main page`" :show-underline="false">
         <v-btn href="/" text dark>
-          <span>{{ appTitle }}</span>
+          <img alt="" src="@/assets/ASQ_logo_draft_wb.png" height="35px" />
+          <span class="ml-3">{{ appTitle }}</span>
         </v-btn>
       </tooltip>
     </v-toolbar-title>
@@ -23,7 +24,6 @@
     </tooltip>
     <v-spacer />
     <v-btn href="https://epigraphdb.org" target="_blank" text dark>
-      <!-- <span class="mr-5">EpiGraphDB</span> -->
       <img alt="" src="@/assets/epigraphdb-logo-white.png" height="35px" />
     </v-btn>
     <v-sheet color="transparent">

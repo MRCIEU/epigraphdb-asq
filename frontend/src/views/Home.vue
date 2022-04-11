@@ -1,6 +1,31 @@
 <template>
   <v-container>
     <v-row justify="center">
+      <div v-if="showLogo" class="text-center">
+        <div class="py-5" />
+        <img alt="" src="@/assets/ASQ_logo_draft_highres.png" height="120rem" />
+        <p class="text-subtitle-1 grey--text">
+          A natural language query interface to
+          <a href="https://epigraphdb.org" target="_blank">EpiGraphDB</a>
+          evidence
+        </p>
+        <p class="text-subtitle-1">
+          <v-tooltip v-model="showDocsTooltip" bottom color="success">
+            <template v-slot:activator="{ on, attrs }">
+              <a href="/docs" class="px-3" v-bind="attrs" v-on="on">
+                Documentation
+              </a>
+            </template>
+            <span>Read documentation here</span>
+          </v-tooltip>
+          |
+          <a href="/triple" class="px-3">Triple query</a>
+          |
+          <a href="/medrxiv-analysis" class="px-3">
+            Systematic analysis results
+          </a>
+        </p>
+      </div>
       <v-expansion-panels v-model="panels" flat multiple>
         <!-- query -->
         <v-expansion-panel>
@@ -44,11 +69,16 @@ export default Vue.extend({
     return {
       panels: [0],
       resultPanelDisabled: true,
+      showDocsTooltip: true,
     };
   },
   computed: {
     queryAllDone(): boolean {
       const res = this.$store.getters["queryStage/queryAllDone"];
+      return res;
+    },
+    showLogo(): boolean {
+      const res = this.$store.state.queryStage.latestStage == 1;
       return res;
     },
     queryHeader(): string {
@@ -76,10 +106,20 @@ export default Vue.extend({
     },
   },
   mounted: async function (): Promise<void> {
+    this.timeoutTooltip();
     await this.$store.dispatch("queryStage/setQueryMode", "standard");
   },
   methods: {
-    //
+    timeoutTooltip(): void {
+      setTimeout(
+        function () {
+          if (this.showDocsTooltip) {
+            this.showDocsTooltip = false;
+          }
+        }.bind(this),
+        3000,
+      );
+    },
   },
 });
 </script>

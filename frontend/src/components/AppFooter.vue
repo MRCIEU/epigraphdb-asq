@@ -14,16 +14,15 @@
         </div>
         <span v-if="queryTriple" v-html="queryTriple"></span>
         <v-spacer></v-spacer>
-        <v-tooltip v-model="showDocsTooltip" top>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn x-small tile text dark href="/docs" target="_blank">
-              <div>
-                <span v-bind="attrs" v-on="on">Docs</span>
-              </div>
-            </v-btn>
-          </template>
-          <span>Read documentation here</span>
-        </v-tooltip>
+        <tooltip
+          :show-underline="false"
+          :docs="'Documentation'"
+          :position="'top'"
+        >
+          <v-btn x-small tile text dark href="/docs" target="_blank">
+            <span>Docs</span>
+          </v-btn>
+        </tooltip>
         <tooltip :show-underline="false" :docs="'Github'" :position="'top'">
           <v-btn
             x-small
@@ -79,7 +78,6 @@ export default Vue.extend({
   name: "AppFooter",
   data: () => ({
     hide: false,
-    showDocsTooltip: true,
   }),
   computed: {
     currentRouteName() {
@@ -114,19 +112,10 @@ export default Vue.extend({
     },
   },
   mounted: function () {
-    this.timeoutTooltip();
+    //
   },
   methods: {
-    timeoutTooltip(): void {
-      setTimeout(
-        function () {
-          if (this.showDocsTooltip) {
-            this.showDocsTooltip = false;
-          }
-        }.bind(this),
-        5000,
-      );
-    },
+    //
   },
 });
 </script>
