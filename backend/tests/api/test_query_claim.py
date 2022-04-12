@@ -32,7 +32,7 @@ There is a major epidemic of obesity, and many obese patients suffer with respir
         assert r.ok
 
 
-class TestInvalidText:
+class TestInvalidTripleText:
     CLAIM_TEXT = "There is a major epidemic of obesity, and many obese patients suffer with respiratory symptoms and disease."
 
     def test_processing(self):
@@ -48,6 +48,30 @@ class TestInvalidText:
         assert len(triple_df) == 0
         assert len(triple_items) == 0
         assert len(invalid_triple_items) > 0
+
+    def test_api(self):
+        payload = {"claim_text": self.CLAIM_TEXT}
+        with TestClient(app) as client:
+            r = client.post("/claim_parsing/parse", json=payload)
+        assert r.ok
+
+
+class TestBullshitText:
+    CLAIM_TEXT = "A quick brown fox jumps over the lazy dog."
+
+    def test_processing(self):
+        claim_text = self.CLAIM_TEXT
+        claim_parser = claim_parsing.ClaimParser(config=config)
+        claim_parser.parse_claim(claim_text=claim_text)
+        triple_df = claim_parser.triple_df
+        triple_items = claim_parser.triple_items
+        invalid_triple_items = claim_parser.invalid_triple_items
+        print(triple_df)
+        pprint(triple_items)
+        pprint(invalid_triple_items)
+        assert len(triple_df) == 0
+        assert len(triple_items) == 0
+        assert len(invalid_triple_items) == 0
 
     def test_api(self):
         payload = {"claim_text": self.CLAIM_TEXT}

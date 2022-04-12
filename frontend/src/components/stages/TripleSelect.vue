@@ -18,7 +18,6 @@ v-container
         v-progress-circular(v-if="loading", indeterminate, color="grey")
         span {{ btnLabel }}
   div(v-if="!active")
-    br
     v-alert(:type="tripleResultsEmpty ? 'error' : 'info'") {{ inactiveMessage }}
     div(v-if="$store.state.queryStage.latestStage >= stage")
       v-subheader Invalid claim triples
