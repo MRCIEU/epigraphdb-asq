@@ -1,15 +1,17 @@
 # Annotated semantic query
 
-## setup
+This is the source code repository to the [EpiGraphDB-ASQ platform](https://asq.epigraphdb.org), 
+which is a natural language interface to the EpiGraphDB data and platform.
 
-### Application
+You can access ASQ functionalities via the following links:
 
-docker.
+- [Main entry point](https://asq.epigraphdb.org)
+- [Triple query](https://asq.epigrahpdb.org/triple)
+- [Systematic analysis results of medRxiv submissions](https://asq.epigraphdb.org/medrxiv-analysis)
+- [Documentation](https://asq.epigraphdb.org/docs)
 
-### analysis
+For feedback and questions please use [Github issues](/issues).
 
-- conda env
-- install local packages, i.e. `pip install -e PATH`
-  - `common_processing`
-  - `analysis`
-- `mypy --install-types`
+## Citation
+
+Forthcoming.
