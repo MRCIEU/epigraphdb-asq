@@ -10,7 +10,7 @@ You can access ASQ functionalities via the following links:
 - [Systematic analysis results of medRxiv submissions](https://asq.epigraphdb.org/medrxiv-analysis)
 - [Documentation](https://asq.epigraphdb.org/docs)
 
-For feedback and questions please use [Github issues](/issues).
+For feedback and questions please use [Github issues](https://github.com/mrcieu/epigraphdb-asq/issues).
 
 ## Citation
 
