@@ -24,15 +24,6 @@ Vue.component("Tooltip", Tooltip);
 Vue.config.productionTip = false;
 Vue.use(fullscreen);
 
-// hide console.log when prod
-if (process.env.NODE_ENV == "production") {
-  const disFunc = () => {};
-  console.log = disFunc;
-  console.error = disFunc;
-  console.warn = disFunc;
-  Object.freeze(console);
-}
-
 import { gtagId } from "@/config";
 import VueGtag from "vue-gtag";
 if (gtagId !== null) {
@@ -44,6 +35,16 @@ if (gtagId !== null) {
   console.log("EpiGraphDB-ASQ: Google analytics enabled");
 } else {
   console.log("EpiGraphDB-ASQ: Google analytics not enabled");
+}
+
+
+// hide console.log when prod
+if (process.env.NODE_ENV == "production") {
+  const disFunc = () => {};
+  console.log = disFunc;
+  console.error = disFunc;
+  console.warn = disFunc;
+  Object.freeze(console);
 }
 
 new Vue({
