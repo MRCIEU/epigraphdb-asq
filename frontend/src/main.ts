@@ -33,6 +33,19 @@ if (process.env.NODE_ENV == "production") {
   Object.freeze(console);
 }
 
+import { gtagId } from "@/config";
+import VueGtag from "vue-gtag";
+if (gtagId !== null) {
+  Vue.use(VueGtag, {
+    config: {
+      id: gtagId,
+    },
+  });
+  console.log("EpiGraphDB-ASQ: Google analytics enabled");
+} else {
+  console.log("EpiGraphDB-ASQ: Google analytics not enabled");
+}
+
 new Vue({
   router,
   store,

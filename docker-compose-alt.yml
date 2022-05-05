@@ -73,6 +73,7 @@ services:
       dockerfile: Dockerfile
       args:
         - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_PROD_URL:-localhost:8625}
+        - VUE_APP_GTAG_ID=${FRONTEND_PROD_GTAG_ID}
     restart: unless-stopped
     ports:
       - ${DOCKER_FRONTEND_PROD_PORT:-8626}:80
