@@ -40,7 +40,14 @@
           :docs="`Example on how to query the API programmatically`"
           :position="'top'"
         >
-          <v-btn x-small tile text dark href="https://github.com/MRCIEU/epigraphdb-asq/blob/master/analysis/notebooks/programmatic-access.ipynb" target="_blank">
+          <v-btn
+            x-small
+            tile
+            text
+            dark
+            href="https://github.com/MRCIEU/epigraphdb-asq/blob/master/analysis/notebooks/programmatic-access.ipynb"
+            target="_blank"
+          >
             <span>Programmatic query</span>
           </v-btn>
         </tooltip>
