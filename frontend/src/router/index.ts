@@ -20,7 +20,9 @@ const routes: Array<RouteConfig> = [
     path: "/medrxiv-analysis",
     name: "SystematicAnalysis",
     component: () =>
-      import(/* webpackChunkName: "SystematicAnalysis" */ "@/views/AnalysisView.vue"),
+      import(
+        /* webpackChunkName: "SystematicAnalysis" */ "@/views/AnalysisView.vue"
+      ),
   },
   {
     path: "/medrxiv-analysis/viz",
@@ -40,8 +42,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/docs",
     name: "Docs",
-    component: () =>
-      import(/* webpackChunkName: "docs" */ "../views/Docs.vue"),
+    component: () => import(/* webpackChunkName: "docs" */ "../views/Docs.vue"),
   },
   {
     path: "/loading",

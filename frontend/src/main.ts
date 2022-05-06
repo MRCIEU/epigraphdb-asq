@@ -37,7 +37,6 @@ if (gtagId !== null) {
   console.log("EpiGraphDB-ASQ: Google analytics not enabled");
 }
 
-
 // hide console.log when prod
 if (process.env.NODE_ENV == "production") {
   const disFunc = () => {};
