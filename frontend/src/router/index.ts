@@ -1,8 +1,6 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
-import TripleView from "../views/TripleView.vue";
-import AnalysisView from "../views/AnalysisView.vue";
 
 Vue.use(VueRouter);
 
@@ -15,12 +13,20 @@ const routes: Array<RouteConfig> = [
   {
     path: "/triple",
     name: "TripleView",
-    component: TripleView,
+    component: () =>
+      import(/* webpackChunkName: "TripleView" */ "@/views/TripleView.vue"),
   },
   {
     path: "/medrxiv-analysis",
     name: "SystematicAnalysis",
-    component: AnalysisView,
+    component: () =>
+      import(/* webpackChunkName: "SystematicAnalysis" */ "@/views/AnalysisView.vue"),
+  },
+  {
+    path: "/medrxiv-analysis/viz",
+    name: "AnalysisViz",
+    component: () =>
+      import(/* webpackChunkName: "AnalysisViz" */ "@/views/AnalysisViz.vue"),
   },
   {
     path: "/about",
@@ -35,14 +41,14 @@ const routes: Array<RouteConfig> = [
     path: "/docs",
     name: "Docs",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Docs.vue"),
+      import(/* webpackChunkName: "docs" */ "../views/Docs.vue"),
   },
   {
     path: "/loading",
     name: "Loading",
     component: () =>
       import(
-        /* webpackChunkName: "about" */ "../components/widgets/LoadingScreen.vue"
+        /* webpackChunkName: "LoadingScreen" */ "../components/widgets/LoadingScreen.vue"
       ),
   },
 ];
