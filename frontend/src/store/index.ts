@@ -8,6 +8,7 @@ import { params, paramsState } from "./params";
 import { evidence, evidenceState } from "./evidence";
 import { snackbar, snackbarState } from "./snackbar";
 import { docs, docsState } from "./docs";
+import { analysisData, analysisDataState } from "./analysisData";
 
 Vue.use(Vuex);
 
@@ -19,6 +20,7 @@ export type State = {
   params: paramsState;
   evidence: evidenceState;
   docs: docsState;
+  analysisData: analysisDataState;
 };
 
 const store = new Vuex.Store<State>({
@@ -30,6 +32,7 @@ const store = new Vuex.Store<State>({
     params: params,
     evidence: evidence,
     docs: docs,
+    analysisData: analysisData,
   },
 });
 

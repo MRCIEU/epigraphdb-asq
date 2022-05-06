@@ -182,6 +182,9 @@ import * as networkPlot from "@/funcs/network-plot-study-analysis";
 import { PRED_MAPPING, PRED_GROUP } from "@/store/ents";
 import LiteratureSource from "@/components/widgets/AnalysisLiteratureDialog.vue";
 
+import { State } from "@/store";
+import { mapState } from "vuex";
+
 const VIEW_TITLE = "ASQ: analysis";
 
 export default Vue.extend({
@@ -195,7 +198,6 @@ export default Vue.extend({
     return {
       resultsTab: 1,
       showDocsTooltip: true,
-      analysisData: null,
       baseData: null,
       tblData: null,
       search: null,
@@ -285,6 +287,9 @@ export default Vue.extend({
     };
   },
   computed: {
+    ...mapState({
+      analysisData: (state: State) => state.analysisData.mainData,
+    }),
     btnState(): Record<string, boolean | string> {
       const primaryNodeLimit = 5;
       const limitReached =
@@ -300,19 +305,22 @@ export default Vue.extend({
       return res;
     },
   },
+  watch: {
+    analysisData(newVal) {
+      if (newVal !== null) {
+        this.termOptions = this._.chain(newVal)
+          .map((e) => [e["subject_term"], e["object_term"]])
+          .flatten()
+          .uniq()
+          .value();
+        this.updateData();
+      }
+    },
+  },
   mounted: async function () {
     document.title = VIEW_TITLE;
     await this.$store.dispatch("queryStage/setQueryMode", "off");
-    this.analysisData = await backendRequests.getAnalysisData();
-    this.termOptions = this._.chain(this.analysisData)
-      .map((e) => [e["subject_term"], e["object_term"]])
-      .flatten()
-      .uniq()
-      .value();
-    const edgeMode = this.edgeModeSelect as networkPlot.EdgeModes;
-    this.baseData = this.makeBaseData();
-    this.tblData = this.formatTblData(this.baseData);
-    this.plotData = networkPlot.makePlot(this.baseData, [], edgeMode);
+    await this.$store.dispatch("analysisData/getData");
     this.timeoutTooltip();
   },
   methods: {
