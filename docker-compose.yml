@@ -23,6 +23,7 @@ services:
 
   redis:
     image: redislabs/redismod
+    restart: unless-stopped
     ports:
       - ${DOCKER_REDIS_PORT:-8616}:6379
     networks:
