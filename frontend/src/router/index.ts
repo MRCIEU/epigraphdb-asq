@@ -25,12 +25,6 @@ const routes: Array<RouteConfig> = [
       ),
   },
   {
-    path: "/medrxiv-analysis/viz",
-    name: "AnalysisViz",
-    component: () =>
-      import(/* webpackChunkName: "AnalysisViz" */ "@/views/AnalysisViz.vue"),
-  },
-  {
     path: "/about",
     name: "About",
     // route level code-splitting
