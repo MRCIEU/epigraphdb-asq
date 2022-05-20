@@ -35,22 +35,30 @@
             <span>Code</span>
           </v-btn>
         </tooltip>
-        <tooltip
-          :show-underline="false"
-          :docs="`Example on how to query the API programmatically`"
-          :position="'top'"
-        >
-          <v-btn
-            x-small
-            tile
-            text
-            dark
-            href="https://github.com/MRCIEU/epigraphdb-asq/blob/master/analysis/notebooks/programmatic-access.ipynb"
-            target="_blank"
-          >
-            <span>Programmatic query</span>
-          </v-btn>
-        </tooltip>
+        <v-menu offset-y open-on-hover top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn v-bind="attrs" x-small tile text dark v-on="on">
+              <span>Programmatic query</span>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-title>
+                <a
+                  href="https://github.com/MRCIEU/epigraphdb-asq/blob/master/analysis/notebooks/programmatic-access.ipynb"
+                  target="_blank"
+                >
+                  Query Example
+                </a>
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-title>
+                <a href="https://asq-api.epigraphdb.org" target="_blank">API</a>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <tooltip
           :show-underline="false"
           :docs="`Feedbacks or queries welcome!`"
