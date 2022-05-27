@@ -15,7 +15,7 @@ class ClaimTextRequest(BaseModel):
         if len(v) > char_length_limit:
             raise HTTPException(
                 status_code=422,
-                detail=f"Number of characters should not exceed {v}",
+                detail=f"Number of characters should not exceed {char_length_limit}",
             )
         return v
 
