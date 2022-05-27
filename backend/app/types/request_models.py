@@ -1,12 +1,23 @@
 from typing import List, Optional
 
-from pydantic import BaseModel
+from fastapi import HTTPException
+from pydantic import BaseModel, validator
 
 from app.settings import params
 
 
 class ClaimTextRequest(BaseModel):
     claim_text: str
+
+    @validator("claim_text")
+    def char_length(cls, v):
+        char_length_limit = 5_000
+        if len(v) > char_length_limit:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Number of characters should not exceed {v}",
+            )
+        return v
 
 
 class EntRequest(BaseModel):
@@ -53,7 +64,9 @@ class LiteratureLiteRequests(BaseModel):
 
 class LiteratureRequests(BaseModel):
     triple_items: List[TripleItemRequest]
-    num_literature_items_per_triple: int = params.NUM_LITERATURE_ITEMS_PER_TRIPLE
+    num_literature_items_per_triple: int = (
+        params.NUM_LITERATURE_ITEMS_PER_TRIPLE
+    )
     # these at the moment is simply used to highlight query terms on web app
     triple_subject_term: Optional[str] = None
     triple_object_term: Optional[str] = None
