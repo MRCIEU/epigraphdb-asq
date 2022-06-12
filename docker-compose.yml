@@ -2,6 +2,14 @@ version: "3.4"
 
 services:
 
+  redis:
+    image: redislabs/redismod
+    restart: always
+    ports:
+      - ${DOCKER_REDIS_PORT:-8616}:6379
+    networks:
+      - default
+
   backend:
     build:
       context: ./
@@ -18,14 +26,6 @@ services:
       - ./common_processing:/common_processing
     environment:
       - MAX_WORKERS=1
-    networks:
-      - default
-
-  redis:
-    image: redislabs/redismod
-    restart: unless-stopped
-    ports:
-      - ${DOCKER_REDIS_PORT:-8616}:6379
     networks:
       - default
 
@@ -51,7 +51,7 @@ services:
     build:
       context: ./
       dockerfile: backend/Dockerfile
-    restart: unless-stopped
+    restart: always
     ports:
       - ${DOCKER_BACKEND_PROD_PORT:-8625}:80
     command: bash -c "make run_prod"
@@ -73,7 +73,7 @@ services:
       args:
         - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_PROD_URL:-localhost:8625}
         - VUE_APP_GTAG_ID=${FRONTEND_PROD_GTAG_ID}
-    restart: unless-stopped
+    restart: always
     ports:
       - ${DOCKER_FRONTEND_PROD_PORT:-8626}:80
     networks:
