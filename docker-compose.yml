@@ -52,6 +52,8 @@ services:
       context: ./
       dockerfile: backend/Dockerfile
     restart: always
+    depends_on:
+      - redis
     ports:
       - ${DOCKER_BACKEND_PROD_PORT:-8625}:80
     command: bash -c "make run_prod"
@@ -74,6 +76,9 @@ services:
         - VUE_APP_WEB_BACKEND_URL=${DOCKER_BACKEND_PROD_URL:-localhost:8625}
         - VUE_APP_GTAG_ID=${FRONTEND_PROD_GTAG_ID}
     restart: always
+    depends_on:
+      - backend_prod
+      - redis
     ports:
       - ${DOCKER_FRONTEND_PROD_PORT:-8626}:80
     networks:
