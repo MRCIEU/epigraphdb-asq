@@ -7,7 +7,8 @@ router = APIRouter()
 
 
 @router.post(
-    "/scores/assoc", response_model=types.AssocScoresResponse,
+    "/scores/assoc",
+    response_model=types.AssocScoresResponse,
 )
 async def get_assoc_scores(data: types.AssocScoresRequests):
     assoc_evidence = pd.DataFrame([_.dict() for _ in data.assoc_evidence])
@@ -39,7 +40,8 @@ async def get_assoc_scores(data: types.AssocScoresRequests):
 
 
 @router.post(
-    "/scores/triples", response_model=types.TripleScoresResponse,
+    "/scores/triples",
+    response_model=types.TripleScoresResponse,
 )
 async def get_triple_scores(data: types.TripleScoresRequests):
     triple_evidence = pd.DataFrame([_.dict() for _ in data.triple_evidence])

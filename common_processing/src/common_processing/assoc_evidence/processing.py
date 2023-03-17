@@ -40,7 +40,10 @@ def get_evidence_results(
         pval_threshold=pval_threshold,
         config=config,
     )
-    result_df = evidence_func(subject_ids=subject_ids, object_ids=object_ids,)
+    result_df = evidence_func(
+        subject_ids=subject_ids,
+        object_ids=object_ids,
+    )
     logger.info(f"{len(result_df)}")
     logger.info(f"{result_df.groupby('meta_rel').size()}")
     return result_df
@@ -147,7 +150,10 @@ def directional_contradictory_type2(
 
 
 def directional_generic(
-    subject_ids: List[str], object_ids: List[str], config: Config, **kwargs,
+    subject_ids: List[str],
+    object_ids: List[str],
+    config: Config,
+    **kwargs,
 ):
     prs_query = epigraphdb.PRS_TEMPLATE.format(
         source_id_list=_list_to_str(subject_ids),

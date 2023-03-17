@@ -17,9 +17,7 @@ def check_component_status(config: Config, verbose: bool = False):
         ),
         json={"endpoint": "/status/", "method": "GET", "params": None},
     ).json()
-    text_base_status = requests.get(
-        f"{config.text_base_api_url}/status/"
-    ).json()
+    text_base_status = requests.get(f"{config.medline_api_url}/ping").json()
     epigraphdb_api_status = requests.get(
         f"{config.epigraphdb_api_url}/ping"
     ).json()

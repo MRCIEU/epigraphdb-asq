@@ -10,7 +10,7 @@ env.read_env()
 config = Config(
     semrep_api_url=env("ANALYSIS_SEMREP_API_URL"),
     melodi_presto_api_url=env("ANALYSIS_MELODI_PRESTO_API_URL"),
-    text_base_api_url=env("ANALYSIS_TEXT_BASE_API_URL"),
+    medline_api_url=env("ANALYSIS_MEDLINE_API_URL"),
     epigraphdb_api_url=env("ANALYSIS_EPIGRAPHDB_API_URL"),
     epigraphdb_web_backend_url=env("ANALYSIS_EPIGRAPHDB_WEB_BACKEND_URL"),
     epigraphdb_neural_url=env("ANALYSIS_EPIGRAPHDB_NEURAL_URL"),

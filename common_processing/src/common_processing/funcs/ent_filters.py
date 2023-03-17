@@ -46,7 +46,10 @@ def prefix_filter(ent_ids: List[str], **kwargs) -> List[str]:
 
 # NOTE: this func needs to be partialled on the `config` arg
 def exist_with_epigraphdb_mr_eve_mr(
-    ent_ids: List[str], config: Config, verbose: bool, **kwargs,
+    ent_ids: List[str],
+    config: Config,
+    verbose: bool,
+    **kwargs,
 ) -> List[str]:
     logger.info(f"Begin filter MR_EVE_MR, {len(ent_ids)=}")
     url = "{url}/cypher".format(url=config.epigraphdb_api_url)
@@ -73,7 +76,10 @@ def exist_with_epigraphdb_mr_eve_mr(
 
 
 def exist_with_epigraphdb_undirectional_assoc(
-    ent_ids: List[str], config: Config, verbose: bool, **kwargs,
+    ent_ids: List[str],
+    config: Config,
+    verbose: bool,
+    **kwargs,
 ) -> List[str]:
     logger.info(f"Begin filter undirectional assoc, {len(ent_ids)=}")
     url = "{url}/cypher".format(url=config.epigraphdb_api_url)

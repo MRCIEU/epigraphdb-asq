@@ -45,7 +45,8 @@ class LiteratureLiteEvidenceProcessor:
         )
 
         self._pubmed_df = processing.make_pubmed_df(
-            literature_df=self._literature_info_df, num_items_per_triple=None,
+            literature_df=self._literature_info_df,
+            num_items_per_triple=None,
         )
         if len(self._pubmed_df) == 0:
             logger.debug(f"empty pubmed_df {triples=}")

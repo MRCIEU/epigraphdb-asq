@@ -6,7 +6,7 @@ from pathlib import Path
 class Config:
     semrep_api_url: str
     melodi_presto_api_url: str
-    text_base_api_url: str
+    medline_api_url: str
     epigraphdb_api_url: str
     epigraphdb_web_backend_url: str
     epigraphdb_neural_url: str

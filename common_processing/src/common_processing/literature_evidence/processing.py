@@ -7,12 +7,14 @@ from loguru import logger
 from pandera.engines.numpy_engine import Object
 from pandera.typing import DataFrame, Series
 
+from ..funcs import component_query
 from ..types import Config, literature_types
 
 
 class _LiteratureInfoQueryDf(pa.SchemaModel):
     literature_issn: Optional[Series[str]] = pa.Field(
-        alias="literature.issn", nullable=True,
+        alias="literature.issn",
+        nullable=True,
     )
     literature__name: Series[str] = pa.Field(alias="literature._name")
     literature_year: Optional[Series[int]] = pa.Field(
@@ -23,10 +25,12 @@ class _LiteratureInfoQueryDf(pa.SchemaModel):
     literature_id: Series[str] = pa.Field(alias="literature.id")
     literature__id: Series[str] = pa.Field(alias="literature._id")
     literature_dp: Optional[Series[str]] = pa.Field(
-        alias="literature.dp", nullable=True,
+        alias="literature.dp",
+        nullable=True,
     )
     literature_edat: Optional[Series[str]] = pa.Field(
-        alias="literature.edat", nullable=True,
+        alias="literature.edat",
+        nullable=True,
     )
 
 
@@ -68,26 +72,15 @@ class _SentenceDf(_SentenceQueryDf):
     pass
 
 
-class _FulltextQueryDf(pa.SchemaModel):
-    doi: Series[str]
-    title: Series[str]
-    timestamp: Series[str]
-    abstract: Series[str]
-    year: Series[int]
-    pmid: Series[str]
-    type: Series[str]
-
-
-class _FulltextDf(_FulltextQueryDf):
-    pass
-
-
 @pa.check_types
 def get_literature_info_df(
-    triple_items: List[literature_types.TripleItem], config: Config,
+    triple_items: List[literature_types.TripleItem],
+    config: Config,
 ) -> DataFrame[_LiteratureInfoDf]:
     @pa.check_types
-    def _query(triple_id: str,) -> DataFrame[_LiteratureInfoQueryDf]:
+    def _query(
+        triple_id: str,
+    ) -> DataFrame[_LiteratureInfoQueryDf]:
         # NOTE: currently limited to SEMMEDDB
         # MAYBE: drop hard coded literature limit
         query_template = """
@@ -190,23 +183,14 @@ def get_sentence_df(
 
 @pa.check_types
 def get_fulltext_df(
-    sentence_df: DataFrame[_SentenceDf], config: Config,
-) -> DataFrame[_FulltextDf]:
-    def _query(lit_id_list: List[str],) -> DataFrame[_FulltextQueryDf]:
-        url = "{url}/pubmed/".format(url=config.text_base_api_url)
-        data = {"pmids": lit_id_list, "type": "text"}
-        r = requests.post(url, json=data)
-        r.raise_for_status()
-        results = r.json()
-        if len(results) == 0:
-            logger.debug(f"empty df, {lit_id_list=}")
-            empty_df = _FulltextQueryDf.example(size=1).iloc[:0, :].copy()
-            return empty_df
-        df = pd.json_normalize(results)
-        return df
+    sentence_df: DataFrame[_SentenceDf],
+    config: Config,
+) -> DataFrame[component_query.MedlineDf]:
 
     lit_id_list = sentence_df["PMID"].astype(str).tolist()
-    fulltext_df = _query(lit_id_list=lit_id_list)
+    fulltext_df = component_query.medline_query(
+        lit_id_list=lit_id_list, url=config.medline_api_url
+    )
     return fulltext_df
 
 
@@ -214,7 +198,7 @@ def get_fulltext_df(
 def make_literature_evidence_df(
     pubmed_df: DataFrame[_PubmedDf],
     sentence_df: DataFrame[_SentenceDf],
-    fulltext_df: DataFrame[_FulltextDf],
+    fulltext_df: DataFrame[component_query.MedlineDf],
 ) -> DataFrame[literature_types.LiteratureEvidenceDf]:
     df = (
         pubmed_df.assign(pubmed_id=lambda df: df["pubmed_id"].astype(str))

@@ -8,7 +8,7 @@ def check_component_status(verbose: bool = False):
     if verbose:
         ic(config.semrep_api_url)
         ic(config.melodi_presto_api_url)
-        ic(config.text_base_api_url)
+        ic(config.medline_api_url)
         ic(config.epigraphdb_api_url)
         ic(config.epigraphdb_web_backend_url)
         ic(config.epigraphdb_es_url)
@@ -25,8 +25,8 @@ def check_component_status(verbose: bool = False):
             "params": None
         }
     ).json()
-    text_base_status = requests.get(
-        f"{config.text_base_api_url}/status/"
+    medline_status = requests.get(
+        f"{config.medline_api_url}/ping"
     ).json()
     epigraphdb_api_status = requests.get(
         f"{config.epigraphdb_api_url}/ping"

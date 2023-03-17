@@ -93,7 +93,8 @@ class PhenotypeEntHarmonizer:
             .to_dict(orient="records")
         )
         filtered_ents = processing.traits_filter_ents_by_predicates(
-            ents=ents, funcs=filter_funcs_partialed,
+            ents=ents,
+            funcs=filter_funcs_partialed,
         )
         ents_df = (
             similarity_scores_df[

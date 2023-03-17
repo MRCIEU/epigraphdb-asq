@@ -29,7 +29,8 @@ class TestOntologyEnts:
     def test_processing(self):
         ent_harmonizer = ent_harmonization.OntologyEntHarmonizer(config=config)
         assert ent_harmonizer.harmonize(
-            ent_id=self.CLAIM_ENT_ID, ent_term=self.CLAIM_ENT,
+            ent_id=self.CLAIM_ENT_ID,
+            ent_term=self.CLAIM_ENT,
         )
         candidates = ent_harmonizer.candidates
         ents = ent_harmonizer.ents
@@ -60,7 +61,8 @@ class TestTraitEnts:
             config=config
         )
         assert phenotype_ent_harmonizer.harmonize(
-            ontology_ents=self.QUERY_ENTS, pred_term=pred_term,
+            ontology_ents=self.QUERY_ENTS,
+            pred_term=pred_term,
         )
         ents_df = phenotype_ent_harmonizer.ents_df
         ents = phenotype_ent_harmonizer.ents
@@ -95,7 +97,8 @@ class TestUmlsEnts:
             config=config
         )
         assert litterm_ent_harmonizer.harmonize(
-            umls_ent=self.QUERY_ENT, ontology_ents=self.ONTOLOGY_ENTS,
+            umls_ent=self.QUERY_ENT,
+            ontology_ents=self.ONTOLOGY_ENTS,
         )
         ents_df = litterm_ent_harmonizer.ents_df
         assert len(ents_df) > 0

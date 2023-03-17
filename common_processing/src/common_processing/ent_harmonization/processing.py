@@ -87,7 +87,9 @@ def efo_ic_scores(
 
 @pa.check_types
 def efo_identity_scores(
-    reference_term: str, ents: List[ent_types.BaseEnt], config: Config,
+    reference_term: str,
+    ents: List[ent_types.BaseEnt],
+    config: Config,
 ) -> DataFrame[IdentityScoresDf]:
     target_terms = [_["ent_term"] for _ in ents]
     text_pairs = {

@@ -1,3 +1,4 @@
+# NOTE: this is for the backend sharing the same network with the semrep container
 version: "3.4"
 
 services:
@@ -20,7 +21,8 @@ services:
       - MAX_WORKERS=1
     networks:
       - default
-      - outside
+      - semrep_network
+      - medline_network
 
   redis:
     image: redislabs/redismod
@@ -65,7 +67,8 @@ services:
       - MAX_WORKERS=8
     networks:
       - default
-      - outside
+      - semrep_network
+      - medline_network
 
   frontend_prod:
     build:
@@ -81,7 +84,10 @@ services:
       - default
 
 networks:
-  outside:
+  semrep_network:
     external:
       name: semrep_default
       # name: semrep-new_default
+  medline_network:
+    external:
+      name: medline_default
