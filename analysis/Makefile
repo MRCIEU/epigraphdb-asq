@@ -7,17 +7,7 @@ python_files=$$(git ls-files -- . | grep -v "legacy" | grep -v "wip" | grep "\.p
 # Rules
 #################################################################################
 
-## ==== streamlit app ====
-
-## Run streamlit app, port 8787
-run:
-	streamlit run streamlit_app.py
-
 ## ==== codebase ====
-
-## setup
-setup:
-	pip install -e .
 
 ## Format codebase, no imports
 fmt-base:
