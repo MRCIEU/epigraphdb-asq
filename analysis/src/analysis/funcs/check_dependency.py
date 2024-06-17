@@ -1,3 +1,4 @@
+# NOTE: check if this func has been replaced by common processing
 import requests
 from icecream import ic
 
@@ -18,16 +19,12 @@ def check_component_status(verbose: bool = False):
     r = requests.get(f"{config.semrep_api_url}/status")
     semrep_api_url_status = r.ok
     melodi_presto_status = requests.post(
-        "{url}/components/melodi-presto".format(url=config.epigraphdb_web_backend_url),
-        json={
-            "endpoint": "/status/",
-            "method": "GET",
-            "params": None
-        }
+        "{url}/components/melodi-presto".format(
+            url=config.epigraphdb_web_backend_url
+        ),
+        json={"endpoint": "/status/", "method": "GET", "params": None},
     ).json()
-    medline_status = requests.get(
-        f"{config.medline_api_url}/ping"
-    ).json()
+    # medline_status = requests.get(f"{config.medline_api_url}/ping").json()
     epigraphdb_api_status = requests.get(
         f"{config.epigraphdb_api_url}/ping"
     ).json()

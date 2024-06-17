@@ -15,6 +15,7 @@ dependencies:
   - loguru
   - environs
   - pydash
+  - altair-all
   # dev utils
   - black
   - flake8
