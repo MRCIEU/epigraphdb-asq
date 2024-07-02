@@ -1,0 +1,35 @@
+name: base
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  # main
+  - numpy
+  - pandas
+  - requests
+  - loguru
+  - environs
+  - pydash
+  - fastapi=0.68
+  - pydantic
+  - uvicorn
+  - pysbd
+  - pytest
+  # dev utils
+  - ipython
+  - black
+  - flake8
+  - jedi
+  - isort
+  - autoflake
+  - mypy
+  - pip
+  - pip:
+    - ipymarkup
+    - icecream
+    - pandera==0.7
+    - hypothesis
+    - aioredis
+    - fastapi-cache2==0.1.6
