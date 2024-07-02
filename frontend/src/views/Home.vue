@@ -24,6 +24,11 @@
           <a href="/medrxiv-analysis" class="px-3">
             Systematic analysis results
           </a>
+          <br/>
+          <br/>
+          <a href="https://forms.office.com/e/nM71WCid3g" class="px-3">
+            (NEW) User experience survey
+          </a>
         </p>
       </div>
       <v-expansion-panels v-model="panels" flat multiple>
