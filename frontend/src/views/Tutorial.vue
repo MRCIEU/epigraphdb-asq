@@ -10,13 +10,17 @@ v-container
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/asq-architecture-diagram.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/asq-architecture-diagram.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
-              p foobar
+              vue-markdown(
+                :source="docs.introduction",
+                :breaks="false"
+              )
       v-divider.py-3
       v-card
         v-card-title
@@ -25,13 +29,32 @@ v-container
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/2-claim-triple-selection.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/1-text-query.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
-              p foobar
+              vue-markdown(
+                :source="docs.textQuery",
+                :breaks="false"
+              )
+          v-divider.py-3
+          v-row
+            v-col(cols="8")
+              .d-flex.flex-column.align-center.justify-space-between
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/2-claim-triple-selection.png')",
+                    max-width="960px",
+                    contain
+                  )
+            v-col(cols="4")
+              vue-markdown(
+                :source="docs.claimTripleSelection",
+                :breaks="false"
+              )
           v-divider.py-3
       v-card
         v-card-title
@@ -40,21 +63,23 @@ v-container
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/3-claim-entity-selection.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/3-claim-entity-selection.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
               p foobar
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/4-loading.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/4-loading.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
               p foobar
       v-divider.py-3
@@ -65,22 +90,24 @@ v-container
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/5-evidence-summary.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/5-evidence-summary.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
               p foobar
           v-divider.py-3
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/6-evidence-group.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/6-evidence-group.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
               p foobar
       v-divider.py-3
@@ -91,11 +118,24 @@ v-container
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
-                v-img(
-                  :src="require('@/assets/tutorial/7-parameters.png')",
-                  max-width="960px",
-                  contain
-                )
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/7-parameters-pre.png')",
+                    max-width="960px",
+                    contain
+                  )
+            v-col(cols="4")
+              p foobar
+          v-divider.py-3
+          v-row
+            v-col(cols="8")
+              .d-flex.flex-column.align-center.justify-space-between
+                v-card
+                  v-img(
+                    :src="require('@/assets/tutorial/annotated/7-parameters.png')",
+                    max-width="960px",
+                    contain
+                  )
             v-col(cols="4")
               p foobar
     // Sidebar
@@ -108,6 +148,7 @@ import Vue from "vue";
 import _ from "lodash";
 
 import Toc from "@/components/widgets/Toc.vue";
+import * as tutorialText from "@/resources/docs/tutorial";
 
 const VIEW_TITLE = "ASQ: tutorial";
 
@@ -118,6 +159,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      docs: tutorialText,
       outline: {
         introduction: {
           ref: "introduction",
@@ -136,7 +178,7 @@ export default Vue.extend({
         },
         "evidence-retrieval": {
           ref: "evidence-retrieval",
-          label: "Retrieval of evidence from EpiGraphDB",
+          label: "Retrieval of evidence",
           focus: false,
         },
         "others": {
