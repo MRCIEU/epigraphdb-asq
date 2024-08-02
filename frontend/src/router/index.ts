@@ -41,7 +41,8 @@ const routes: Array<RouteConfig> = [
   {
     path: "/tutorial",
     name: "Tutorial",
-    component: () => import(/* webpackChunkName: "tutorial" */ "../views/Tutorial.vue"),
+    component: () =>
+      import(/* webpackChunkName: "tutorial" */ "../views/Tutorial.vue"),
   },
   {
     path: "/loading",

@@ -22,14 +22,38 @@
         <span class="mr-2">MedRxiv analysis</span>
       </v-btn>
     </tooltip>
-    <tooltip
-      :docs="`Tutorial on how to use the platform`"
-      :show-underline="false"
-    >
-      <v-btn href="/tutorial" target="_blank" text dark>
-        <span class="mr-2" style="color: #ffe57f">Tutorial</span>
-      </v-btn>
-    </tooltip>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn text dark v-on="on">
+          <span class="mr-2" style="color: #ffe57f">
+            Docs
+            <v-icon>chevron-down</v-icon>
+          </span>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item>
+          <v-list-item-title>
+            <tooltip
+              :docs="`Tutorial on how to use the platform`"
+              :show-underline="false"
+            >
+              <v-btn href="/tutorial" target="_blank" text>Tutorial</v-btn>
+            </tooltip>
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>
+            <tooltip
+              :docs="`Documentation of technical terms`"
+              :show-underline="false"
+            >
+              <v-btn href="/docs" target="_blank" text>Docs</v-btn>
+            </tooltip>
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-spacer />
     <v-btn href="https://epigraphdb.org" target="_blank" text dark>
       <img alt="" src="@/assets/epigraphdb-logo-white.png" height="35px" />

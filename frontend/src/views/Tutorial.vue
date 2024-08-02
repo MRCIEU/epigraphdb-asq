@@ -17,10 +17,7 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              vue-markdown(
-                :source="docs.introduction",
-                :breaks="false"
-              )
+              vue-markdown(:source="docs.introduction", :breaks="false")
       v-divider.py-3
       v-card
         v-card-title
@@ -36,10 +33,7 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              vue-markdown(
-                :source="docs.textQuery",
-                :breaks="false"
-              )
+              vue-markdown(:source="docs.textQuery", :breaks="false")
           v-divider.py-3
           v-row
             v-col(cols="8")
@@ -58,7 +52,10 @@ v-container
           v-divider.py-3
       v-card
         v-card-title
-          h2#entity-harmonization(ref="entity-harmonization", v-intersect="onIntersect") Harmonization of the query entities
+          h2#entity-harmonization(
+            ref="entity-harmonization",
+            v-intersect="onIntersect"
+          ) Harmonization of the query entities
         v-card-text
           v-row
             v-col(cols="8")
@@ -70,7 +67,10 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              p foobar
+              vue-markdown(
+                :source="docs.claimEntitySelection",
+                :breaks="false"
+              )
           v-row
             v-col(cols="8")
               .d-flex.flex-column.align-center.justify-space-between
@@ -81,11 +81,14 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              p foobar
+              vue-markdown(:source="docs.loading", :breaks="false")
       v-divider.py-3
       v-card
         v-card-title
-          h2#evidence-retrieval(ref="evidence-retrieval", v-intersect="onIntersect") Retrieval of evidence from EpiGraphDB
+          h2#evidence-retrieval(
+            ref="evidence-retrieval",
+            v-intersect="onIntersect"
+          ) Retrieval of evidence from EpiGraphDB
         v-card-text
           v-row
             v-col(cols="8")
@@ -97,7 +100,7 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              p foobar
+              vue-markdown(:source="docs.evidenceSummary", :breaks="false")
           v-divider.py-3
           v-row
             v-col(cols="8")
@@ -109,7 +112,7 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              p foobar
+              vue-markdown(:source="docs.evidenceGroup", :breaks="false")
       v-divider.py-3
       v-card
         v-card-title
@@ -124,12 +127,6 @@ v-container
                     max-width="960px",
                     contain
                   )
-            v-col(cols="4")
-              p foobar
-          v-divider.py-3
-          v-row
-            v-col(cols="8")
-              .d-flex.flex-column.align-center.justify-space-between
                 v-card
                   v-img(
                     :src="require('@/assets/tutorial/annotated/7-parameters.png')",
@@ -137,7 +134,7 @@ v-container
                     contain
                   )
             v-col(cols="4")
-              p foobar
+              vue-markdown(:source="docs.parameters", :breaks="false")
     // Sidebar
     v-col(cols="2")
       toc(:outline="outline", @goto="jump")
@@ -181,7 +178,7 @@ export default Vue.extend({
           label: "Retrieval of evidence",
           focus: false,
         },
-        "others": {
+        others: {
           ref: "others",
           label: "Other topics",
           focus: false,
